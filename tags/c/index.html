@@ -371,38 +371,6 @@
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/20/leetcode-907/">
-            
-                <span>leetcode(907)</span>
-        </a>
-        <div class="abstract-content">
-            leetcode907题，题意很简单，就是计算数组所有的连续子数组的最小值的和。
-有两种做法，一种是单调栈，一种是单调队列。
-先说单调栈，思路就是找到数组中数字作为子数组最小值的左右边界，然后计算即可。如3 1 2 4，对于1来说，左边界就是最左端，右边界就是最右端，那么1作为最小值的子数组就有2×3个（离左端距离2，右端距离3），类似的，对2来说就是1×2。因此只需要计算得到每个数作为最小值的左右边界，即可完成。而要高效计算左右边界，则引入了单调栈的结构。
-单调栈，顾名思义，它首先是一个栈，而且内部是单调有序的。使用单调栈的重要原因是，当我们从左到右，检测数字右边界的过程中，较大数能到...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
 </main>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="John Doe">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="John Doe">
+    
+    <meta name="keywords" content="nevermorezjh">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>effective c++(1) · nevermorezjh&#39;s Studio</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">nevermorezjh&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">effective c++(1)</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">nevermorezjh's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            effective c++(1)
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="c++">c++</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/02/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="条款01：-视C-为一个语言联邦"><a href="#条款01：-视C-为一个语言联邦" class="headerlink" title="条款01： 视C++为一个语言联邦"></a>条款01： 视C++为一个语言联邦</h2><p>简单来说，就是四个次语言，C，object-oriented C++，template C++， stl。</p>
+<p>实际上，入门C++很多年了，而且也不是第一次看effective c++了，现在借此博客来重新阅读学习一遍，并做一些总结。</p>
+<h2 id="条款02：尽量以"><a href="#条款02：尽量以" class="headerlink" title="条款02：尽量以"></a>条款02：尽量以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">不适用#define的原因，主要可以用“宁可以编译器替换预处理器”来解释，就是说，```#define```的内容可能被预处理器直接替代，编译器并无法看到实际编程使用的记号，那么报错的时候将直接使用替代的元素，代码可读性可能没什么区别，但是编译报错之后可能很难定位bug的位置，毕竟当代码量变大的时候，很难回想起一个替换值的意义是什么，因此必要的时候，对于数值等内容可以使用```const```和```enum```来替代。</span><br><span class="line"></span><br><span class="line">另外，使用```#define```来定义一些简短的函数，如```#define CALL_WITH_MAX(a, b) f((a) &gt; (b) ? (a) : (b))```，当变得复杂，涉及到```CALL_WITH_MAX(++a, b)```的时候，几乎无法确定```(a)```被执行了多少次也影响了最终的结果，不加括号的话甚至有可能影响代码的执行顺序，当然这样的代码写法实属取不得，但是也暴露了```#define```写法在替代过程中的危险性。要保留简短和高效性，不如使用```inline```函数。</span><br><span class="line"></span><br><span class="line">同时，```#define```也拥有全局的特性，一旦定义，除非```#undef```，否则它将一直存在。如果想要具有局部性，有特定的使用区域，那么有两种方法：</span><br><span class="line"></span><br><span class="line">1. 使用```static const```。注意的是，如果需要取该变量的特定地址，就需要在实现文件（语法上可以在头文件，但是推荐是在实现文件）中定义声明一遍。（还有一种需要的可能是编译器（不正确地）需要。），如</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">// GamePlayer.hpp</span><br><span class="line">class GamePlayer &#123;</span><br><span class="line">private:</span><br><span class="line">	static const int NumTurns = 5;</span><br><span class="line">	int scores[NumTurns];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Gameplayer.cpp</span><br><span class="line">const int GamePlayer::NumTurns = 5;</span><br></pre></td></tr></table></figure></h2><ol>
+<li>使用<figure class="highlight plain"><figcaption><span>hack```，这种方法更接近于```#define```，同时也有特定的指定范围，但是它并不能像```const```那样取得常量的地址，而相当于```#define```的记号，并不分配内存，而且编译错误中的报错并不像```#define```那样模糊。缺点在于enum必须是整型常数，对于浮点数或者是其他还是得老老实实使用```const```，应当注意到```enum hack```也是模板元编程中会使用的常用技巧之一，以后会说到。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```C++</span><br><span class="line">// GamePlayer.hpp</span><br><span class="line">class GamePlayer &#123;</span><br><span class="line">private:</span><br><span class="line">	enum &#123;</span><br><span class="line">		NumTurns = 5,</span><br><span class="line">		another</span><br><span class="line">	&#125;;</span><br><span class="line">	int scores[NumTurns];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="条款03：尽可能使用"><a href="#条款03：尽可能使用" class="headerlink" title="条款03：尽可能使用"></a>条款03：尽可能使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">先来区分一下```const```老题目</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">char greeting[] = &quot;hello&quot;;</span><br><span class="line">const char *p1 = greeting;  // 非常量指针，常量数据，数据不可更改</span><br><span class="line">char* const p2 = greeting;  // 常量指针，非常量数据，指针指向不可更改</span><br><span class="line">char const *p3 = greeting;  // 非常量指针，常量数据，数据不可更改</span><br><span class="line">const char* const p4 = greeting; //常量指针，常量数据，都不可更改</span><br></pre></td></tr></table></figure></h2><p>现在首先讲到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```C++</span><br><span class="line">class Rational &#123;...&#125;;</span><br><span class="line">const Rational operator* (const Rational &amp;lhs, const Rational &amp;rhs);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Rational a, b, c;</span><br><span class="line">if (a * b = c) &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述例子中本来用来判断的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">接着是```const```成员函数，如下面的代码</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">class Text &#123;</span><br><span class="line">private:</span><br><span class="line">	static const int another_size = 15; </span><br><span class="line">	enum &#123;</span><br><span class="line">		size = 10,</span><br><span class="line">		another</span><br><span class="line">	&#125;;</span><br><span class="line">	char info[size];</span><br><span class="line">public:</span><br><span class="line">	Text(const char p[]) &#123;</span><br><span class="line">		int i=0;</span><br><span class="line">		while (p[i] &amp;&amp; i &lt; size) &#123;</span><br><span class="line">			info[i] = p[i];</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;another_size&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	Text(const Text &amp;rhs) &#123;</span><br><span class="line">		for (int i=0;i&lt;size;++i) &#123;</span><br><span class="line">			info[i] = rhs.info[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	const char &amp;operator[](int idx) const &#123;</span><br><span class="line">		cout&lt;&lt;&quot;Const char operator&quot;&lt;&lt;endl;</span><br><span class="line">		return info[idx];</span><br><span class="line">	&#125;</span><br><span class="line">	char &amp;operator[](int idx) &#123;</span><br><span class="line">		cout&lt;&lt;&quot;char operator&quot;&lt;&lt;endl;</span><br><span class="line">		return info[idx];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>对于<figure class="highlight plain"><figcaption><span>operator[]```自然也是无法修改内容的。而如果没有明确表明是```const```的话，编译器一般会选择```operator[]```版本的。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">而在声明函数内为```const```，不会修改成员变量的时候，实在有一些成员需要修改，那么可以使用```mutable```关键字（不过感觉怪怪的）。、</span><br><span class="line"></span><br><span class="line">另外，如果```const```和非```const```版本的函数，内容几乎一致，但是为了```const```对象的使用，那么只能重新实现，但是为了减少代码的重用，可以使用下面的措施。</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">class TextBlock &#123;</span><br><span class="line">public:</span><br><span class="line">	const char &amp;operator[](int idx) const &#123;</span><br><span class="line">		// ...</span><br><span class="line">		// ...</span><br><span class="line">		cout&lt;&lt;&quot;Const char operator&quot;&lt;&lt;endl;</span><br><span class="line">		return info[idx];</span><br><span class="line">	&#125;</span><br><span class="line">	char &amp;operator[](int idx) &#123;</span><br><span class="line">		cout&lt;&lt;&quot;char operator&quot;&lt;&lt;endl;</span><br><span class="line">		return const_cast&lt;char&amp;&gt;(</span><br><span class="line">			static_cast&lt;const TextBlock&amp;&gt; (*this)[idx]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>应当注意，上面的代码中第一个<figure class="highlight plain"><figcaption><span>TextBlock&```类型的对象，上面也提到，对于普通类型的如无明确需要默认会调用普通版本的```operator[]```，因此需要将对象转换为```const```的，保证调用```const operator[]```，避免陷入无限递归。通过两个```cast```实现了避免代码重用。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 条款04：确定对象被使用前已先被初始化</span><br><span class="line"></span><br><span class="line">RAII是老生常谈的话题了，构造函数的初始化也是C++ class的基础内容，还要注意的是初始化的顺序，首先是base class先于derived class的构造，另外构造函数中，构造的顺序跟class中声明的顺序是一致的（不是构造函数冒号后的顺序），当然如无必要最好还是应该避免构造过程中，相互使用类中的变量。</span><br><span class="line"></span><br><span class="line">接下来还有一个问题就是，non-local static对象的使用问题。 如下面代码所示</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">// FileSystem</span><br><span class="line">class FileSystem &#123;</span><br><span class="line">public:</span><br><span class="line">	...</span><br><span class="line">	std::size_t numDisks() const;</span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br><span class="line">extern FileSystem tfs;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// Directory </span><br><span class="line">class Directory &#123;</span><br><span class="line">public:</span><br><span class="line">	Directory(params);	</span><br><span class="line">&#125;;</span><br><span class="line">Directory::Directory(params) &#123;</span><br><span class="line">	...</span><br><span class="line">	std::size_t disks = tfs.numDisks();</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Directory tempDir(params);</span><br></pre></td></tr></table></figure></p>
+<p>因为tfs不一定在tempDir构造之前完成了初始化，它们都是不同编译单元内的non-local static对象，它的初始化相对顺序是未定义的，使用起来会陷入未定义行为的危险当中，而要保证tfs在tempDir之前完成初始化，则需要寻找可确定的初始化顺序。而我们知道，函数中的static变量，在调用函数之前必然会被事先完成初始化，那么就可以利用这一点，将non-local static对象转化为local static对象，进而保证初始化完成，同时，保证只有一个对象。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// FileSystem</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileSystem</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	...</span><br><span class="line">	<span class="built_in">std</span>::<span class="keyword">size_t</span> numDisks() <span class="keyword">const</span>;</span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">FileSystem&amp; <span class="title">tfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> FileSystem fs;</span><br><span class="line">	<span class="keyword">return</span> fs</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Directory </span></span><br><span class="line">class Directory &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Directory(params);	</span><br><span class="line">&#125;;</span><br><span class="line">Directory::Directory(params) &#123;</span><br><span class="line">	...</span><br><span class="line">	<span class="built_in">std</span>::<span class="keyword">size_t</span> disks = tfs().numDisks();</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Directory&amp; <span class="title">tempDir</span><span class="params">(params)</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> Directory <span class="title">td</span><span class="params">(params)</span></span>;</span><br><span class="line">	<span class="keyword">return</span> td;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然了，要保证使用一个对象，返回值必然是引用的，这也是Singleton模式的常见实现方法。思想是：以local static对象替换non-local static对象。</p>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/02/20/leetcode-907/" title="leetcode(907)">
+                    <div class="prevTitle">leetcode(907)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:371103456@qq.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/nevermorezjh" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title="wechat">
+                  
+                  <img class="profile-qr" src="/assets/wechat_qr.png">
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#条款01：-视C-为一个语言联邦"><span class="toc-number">1.</span> <span class="toc-text">条款01： 视C++为一个语言联邦</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款02：尽量以"><span class="toc-number">2.</span> <span class="toc-text">条款02：尽量以1234567891011121314151617181920不适用#define的原因，主要可以用“宁可以编译器替换预处理器”来解释，就是说，```#define```的内容可能被预处理器直接替代，编译器并无法看到实际编程使用的记号，那么报错的时候将直接使用替代的元素，代码可读性可能没什么区别，但是编译报错之后可能很难定位bug的位置，毕竟当代码量变大的时候，很难回想起一个替换值的意义是什么，因此必要的时候，对于数值等内容可以使用```const```和```enum```来替代。另外，使用```#define```来定义一些简短的函数，如```#define CALL_WITH_MAX(a, b) f((a) &gt; (b) ? (a) : (b))```，当变得复杂，涉及到```CALL_WITH_MAX(++a, b)```的时候，几乎无法确定```(a)```被执行了多少次也影响了最终的结果，不加括号的话甚至有可能影响代码的执行顺序，当然这样的代码写法实属取不得，但是也暴露了```#define```写法在替代过程中的危险性。要保留简短和高效性，不如使用```inline```函数。同时，```#define```也拥有全局的特性，一旦定义，除非```#undef```，否则它将一直存在。如果想要具有局部性，有特定的使用区域，那么有两种方法：1. 使用```static const```。注意的是，如果需要取该变量的特定地址，就需要在实现文件（语法上可以在头文件，但是推荐是在实现文件）中定义声明一遍。（还有一种需要的可能是编译器（不正确地）需要。），如```C++// GamePlayer.hppclass GamePlayer {private:	static const int NumTurns = 5;	int scores[NumTurns];};// Gameplayer.cppconst int GamePlayer::NumTurns = 5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款03：尽可能使用"><span class="toc-number">3.</span> <span class="toc-text">条款03：尽可能使用123456789先来区分一下```const```老题目```C++char greeting[] = &quot;hello&quot;;const char *p1 = greeting;  // 非常量指针，常量数据，数据不可更改char* const p2 = greeting;  // 常量指针，非常量数据，指针指向不可更改char const *p3 = greeting;  // 非常量指针，常量数据，数据不可更改const char* const p4 = greeting; //常量指针，常量数据，都不可更改</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 2
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/22</span><a class="archive-post-title" href="/2019/02/22/effective-c-1/">effective c++(1)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href="/2019/02/20/leetcode-907/">leetcode(907)</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
+    
+        <span class="sidebar-tag-name" data-tags="c++"><span class="iconfont-archer">&#xe606;</span>c++</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "John Doe"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+
+
