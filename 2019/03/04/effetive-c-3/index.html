@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>nevermorezjh&#39;s Studio</title>
+    <title>effetive-C++(3) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">nevermorezjh&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">effetive-C++(3)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">nevermorezjh's Studio.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            effetive-C++(3)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,101 +399,65 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/effetive-c-3/">
-            
-                <span>effetive-C++(3)</span>
-        </a>
-        <div class="abstract-content">
-            条款13：以对象管理资源这一章基本都是推销智能指针， 以及讲智能指针可能需要注意的事情，但是稍微比较老了，还在讲auto_ptr的事情，印象中，C++11就已经废除了auto_ptr，只有unique_ptr，shared_ptr，weak_ptr三种指针了，因此后面还要补充一下这三种指针的实现，使用场景，还有具体为什么废除auto_ptr的原因，等等的关于智能指针的内容（希望记得）。
-这里就讲到了一个很重要的概念，Resource Acquisition Is Initialization(RAII)，意思就是资源取得的时机也是它初始化的时间，在C++中，就需要很好地管理好变量的生命周...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="条款13：以对象管理资源"><a href="#条款13：以对象管理资源" class="headerlink" title="条款13：以对象管理资源"></a>条款13：以对象管理资源</h2><p>这一章基本都是推销智能指针， 以及讲智能指针可能需要注意的事情，但是稍微比较老了，还在讲auto_ptr的事情，印象中，C++11就已经废除了auto_ptr，只有unique_ptr，shared_ptr，weak_ptr三种指针了，因此后面还要补充一下这三种指针的实现，使用场景，还有具体为什么废除auto_ptr的原因，等等的关于智能指针的内容（希望记得）。</p>
+<p>这里就讲到了一个很重要的概念，Resource Acquisition Is Initialization(RAII)，意思就是资源取得的时机也是它初始化的时间，在C++中，就需要很好地管理好变量的生命周期，防止<code>return</code>，<code>exception</code>等的出现，导致<code>delete</code>无法执行，进而导致资源泄露。那么解决方法就需要注意到，对于<code>new</code>的变量需要<code>delete</code>之外，作用域内声明的其它变量，都会被自动执行析构函数，因此就有了使用对象来管理资源的概念，对于<code>new</code>来说，自然可以实现一个智能的指针来实现资源的管理，当退出该作用域的时候，能够自动调用其析构函数，把资源还回去。</p>
+<p>而使用智能指针的开始，需要注意的是，智能指针内执行的删除器一般来说（最起码是默认的），都是执行<code>delete</code>，而<code>非delete []</code>，所以交入智能指针的不要是<code>new []</code>的指针。</p>
+<h2 id="条款14：在资源管理类中小心copying行为"><a href="#条款14：在资源管理类中小心copying行为" class="headerlink" title="条款14：在资源管理类中小心copying行为"></a>条款14：在资源管理类中小心copying行为</h2><p>当用智能指针管理指针的时候，可以考虑的问题（或者说好处）就多了起来，比如说复制的行为，一般来说有几种选择的可能。</p>
+<ol>
+<li><p>禁止复制，就是私继承uncopyable。</p>
+</li>
+<li><p>对底层资源祭出“引用计数大法“，这也是shared_ptr实现的技术原理，能够保证使用的是同一个指针，保证资源能够被正确地释放，保证资源被释放之后不会被错误地使用，这都是通过”引用计数“这项技术来实现的。</p>
+</li>
+<li><p>复制底部资源，直接deep-copy，复制出一份一模一样的出来，当然，这一份只是一模一样，从逻辑上来讲，复制品指向的地方不一样了，复制品对进行修改的话，并不能修改原件。</p>
+</li>
+<li><p>转移底部资源的拥有权，像auto_ptr那样，直接转移使用权，原指针指向的地方变为空了（容易出错）。</p>
+</li>
+</ol>
+<h2 id="条款15：在资源管理类中提供对原始资源的访问"><a href="#条款15：在资源管理类中提供对原始资源的访问" class="headerlink" title="条款15：在资源管理类中提供对原始资源的访问"></a>条款15：在资源管理类中提供对原始资源的访问</h2><p>要能够对原始资源能够进行访问的原因是，可能有些函数，输入的参数需要是原始资源类型的，而非智能指针类型的，这时候就需要通过RAII class的API实现，一般来说有显示转换和隐式转换两种，显示转换是通过<code>get API</code>来实现的，而隐式转换则可以通过<code>operator()</code>来实现，究竟哪种方式比较合适，则是后面条款18考虑的问题。</p>
+<h2 id="条款16：成对使用new和delete时需要采用相同形式"><a href="#条款16：成对使用new和delete时需要采用相同形式" class="headerlink" title="条款16：成对使用new和delete时需要采用相同形式"></a>条款16：成对使用new和delete时需要采用相同形式</h2><p>即<code>new</code>和<code>delete</code>配对，<code>new []</code>和<code>delete []</code>配对，否则将会产生未定义行为，很可能导致资源泄露。</p>
+<h2 id="条款17：以独立语句将newed对象置于智能指针"><a href="#条款17：以独立语句将newed对象置于智能指针" class="headerlink" title="条款17：以独立语句将newed对象置于智能指针"></a>条款17：以独立语句将newed对象置于智能指针</h2><p>假若有个场景是要求使用如下的代码的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int priority();</span><br><span class="line">void processWidget(std::tr1::shared_ptr&lt;Widget&gt; pw, int priority);</span><br></pre></td></tr></table></figure>
+<p>如果使用的方式是如下这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">processWidget(new Widget, priority);</span><br></pre></td></tr></table></figure>
+<p>会导致问题，因为智能指针的构造函数是<code>explicit</code>的。</p>
+<p>而这种实现方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">processWidget(std::tr1::shared_ptr&lt;Widget&gt;(new Widget), priority());</span><br></pre></td></tr></table></figure></p>
+<p>也会导致问题，因此priority的执行时间并不一定，不能保证执行顺序。如果是执行了<code>new Widget</code>之后再执行<code>priority()</code>，最后再放入shared_ptr中的话，那么如果<code>priority()</code>抛出异常，则会导致资源泄露。问题的原因在于函数中的comma operator在这里是作为sequence point，虽然<code>a, b, c</code>是保证按顺序执行的，但是在函数中<code>func(arg1, arg2, arg3)</code>的顺序则是未定义的，因此可能会出现那样的问题。最直接的改变方法就是如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::tr1::shared_ptr&lt;Widget&gt; pw(new Widget); // RAII</span><br><span class="line">processWidget(pw, priority());               // 其实我看priority这样调用也不是很舒服（</span><br></pre></td></tr></table></figure>
+<p>总的来说，反映出来要注意的问题就是new出来的对象，一定要保证把它能够立即交给智能指针管理，否则就会有隐患。</p>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/25/effective-C-2/">
-            
-                <span>effective-C++(2)</span>
-        </a>
-        <div class="abstract-content">
-            条款05：了解C++默默编写并调用哪些函数一个完整的C++类，必然包含了构造函数，析构函数，copy构造函数，copy assignment操作符函数，如果没有写这些函数，那么编译器将会生成default版本的函数，大致来说，隐患主要来源于copy构造函数，copy assignment操作符函数过于暴力。默认版本的这两个函数都会直接将rhs的值粗暴地用等号赋值起来，那么对于const的成员，显然会直接报错，另外，对于引用值来说，也是一个很难发现的隐患，因为引用是不可以修改的，如下面的代码
-12345string a = "10", b = "1";string &amp;c = a;c...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/22/effective-c-1/">
-            
-                <span>effective C++(1)</span>
-        </a>
-        <div class="abstract-content">
-            条款01： 视C++为一个语言联邦简单来说，就是四个次语言，C，object-oriented C++，template C++， stl。
-实际上，入门C++很多年了，而且也不是第一次看effective c++了，现在借此博客来重新阅读学习一遍，并做一些总结。
-条款02：尽量以const，enum，inline替换#define不使用#define的原因，主要可以用“宁可以编译器替换预处理器”来解释，就是说，#define的内容可能被预处理器直接替代，编译器并无法看到实际编程使用的记号，那么报错的时候将直接使用替代的元素，代码可读性可能没什么区别，但是编译报错之后可能很难定位bug的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/02/25/effective-C-2/" title="effective-C++(2)">
+                    <div class="prevTitle">effective-C++(2)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -517,6 +542,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#条款13：以对象管理资源"><span class="toc-number">1.</span> <span class="toc-text">条款13：以对象管理资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款14：在资源管理类中小心copying行为"><span class="toc-number">2.</span> <span class="toc-text">条款14：在资源管理类中小心copying行为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款15：在资源管理类中提供对原始资源的访问"><span class="toc-number">3.</span> <span class="toc-text">条款15：在资源管理类中提供对原始资源的访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款16：成对使用new和delete时需要采用相同形式"><span class="toc-number">4.</span> <span class="toc-text">条款16：成对使用new和delete时需要采用相同形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款17：以独立语句将newed对象置于智能指针"><span class="toc-number">5.</span> <span class="toc-text">条款17：以独立语句将newed对象置于智能指针</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -676,6 +719,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
