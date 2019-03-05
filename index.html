@@ -364,7 +364,10 @@ height:50vh;
                 <span>effective-C++(4)</span>
         </a>
         <div class="abstract-content">
-            条款18：让接口容易被正确使用，不易被误用
+            条款18：让接口容易被正确使用，不易被误用本条款精髓在一个先发制人，也就是说，接口设计者会对接口进行特别的设计，来保证接口使用者按照一定规则来使用接口，避免误用，提高可读性，提高bug定位的速度。
+举个例子，如下面的日期类构造函数。
+123456class Date &#123;public:	Date(int month, int day, int year);&#125;;Date d(5, 3, 1995);
+上述代码中，使用者或者reviewer不一定能发现是5月3日还是3月5日，甚至出bug的时候也不容易发现这小细节（虽然是可以在构造函数中构建日志…）但是更直接地提高可读性的方...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -681,6 +684,10 @@ height:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
