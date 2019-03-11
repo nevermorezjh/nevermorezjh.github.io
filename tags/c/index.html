@@ -346,6 +346,68 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/11/effective-C-5/">
+            
+                <span>effective-C++(5)</span>
+        </a>
+        <div class="abstract-content">
+            条款26：尽可能延后变量定义式的出现时间延后变量定义的时间考虑的点有两个，一个是防止变量没有用上，就陷入了异常当中，导致变量构造和析构的不必要开销，另一个则是出于RAII的考虑，不应当无内容地构造一个变量，需要用到的时候再创建出来即可，代码优美，可读性高。
+还有一个考虑的场景是循环内的变量，应该在循环内需要用到再构造还是在循环外先构造好，减少析构函数的开销，其实根据条款来说自然是倾向于在循环内构造，因为循环外构造会遇到的问题就是变量的作用域变大了，不够美观和安全的同时，也出现了没有凭空构造对象的状况（个人觉得，这种代码也有点不够美观…），当然，如果是在效率要求比较高的代码环境下，在循环外...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/03/05/effective-C-4/">
+            
+                <span>effective-C++(4)</span>
+        </a>
+        <div class="abstract-content">
+            条款18：让接口容易被正确使用，不易被误用本条款精髓在一个先发制人，也就是说，接口设计者会对接口进行特别的设计，来保证接口使用者按照一定规则来使用接口，避免误用，提高可读性，提高bug定位的速度。
+举个例子，如下面的日期类构造函数。
+123456class Date &#123;public:	Date(int month, int day, int year);&#125;;Date d(5, 3, 1995);
+上述代码中，使用者或者reviewer不一定能发现是5月3日还是3月5日，甚至出bug的时候也不容易发现这小细节（虽然是可以在构造函数中构建日志…）但是更直接地提高可读性的方...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/03/04/effective-c-3/">
             
                 <span>effective-C++(3)</span>
@@ -571,9 +633,20 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 5
+        Total : 6
         </div>
         <!-- search  -->
         
@@ -586,6 +659,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href="/2019/03/11/effective-C-5/">effective-C++(5)</a>
+        </li>
     
     
         <li class="archive-post-item">

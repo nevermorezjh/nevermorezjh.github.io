@@ -422,7 +422,7 @@ height:50vh;
 <p>接着是<code>const</code>成员函数，如下面的代码</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Text</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> another_size = <span class="number">15</span>; </span><br><span class="line">	<span class="keyword">enum</span> &#123;</span><br><span class="line">		size = <span class="number">10</span>,</span><br><span class="line">		another</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">char</span> info[size];</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Text(<span class="keyword">const</span> <span class="keyword">char</span> p[]) &#123;</span><br><span class="line">		<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (p[i] &amp;&amp; i &lt; size) &#123;</span><br><span class="line">			info[i] = p[i];</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;another_size&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Text(<span class="keyword">const</span> Text &amp;rhs) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;size;++i) &#123;</span><br><span class="line">			info[i] = rhs.info[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span> &amp;<span class="keyword">operator</span>[](<span class="keyword">int</span> idx) <span class="keyword">const</span> &#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"Const char operator"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> info[idx];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> &amp;<span class="keyword">operator</span>[](<span class="keyword">int</span> idx) &#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"char operator"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> info[idx];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>对于<code>operator[]</code>函数，要实现两个版本的原因有两个，一个是对于<code>const</code>对象来说，如果没有<code>const</code>函数，那么将无法使用<code>operator[]</code>函数，因为可能涉及到修改，而若单纯有<code>const operator[]</code>自然也是无法修改内容的。而如果没有明确表明是<code>const</code>的话，编译器一般会选择<code>operator[]</code>版本的。</p>
-<p>而在声明函数内为<code>const</code>，不会修改成员变量的时候，实在有一些成员需要修改，那么可以使用<code>mutable</code>关键字（不过感觉怪怪的）。、</p>
+<p>而在声明函数内为<code>const</code>，不会修改成员变量的时候，实在有一些成员需要修改，那么可以使用<code>mutable</code>关键字（不过感觉怪怪的）。</p>
 <p>另外，如果<code>const</code>和非<code>const</code>版本的函数，内容几乎一致，但是为了<code>const</code>对象的使用，那么只能重新实现，但是为了减少代码的重用，可以使用下面的措施。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TextBlock</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span> &amp;<span class="keyword">operator</span>[](<span class="keyword">int</span> idx) <span class="keyword">const</span> &#123;</span><br><span class="line">		<span class="comment">// ...</span></span><br><span class="line">		<span class="comment">// ...</span></span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"Const char operator"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> info[idx];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> &amp;<span class="keyword">operator</span>[](<span class="keyword">int</span> idx) &#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"char operator"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>&amp;&gt;(</span><br><span class="line">			<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> TextBlock&amp;&gt; (*<span class="keyword">this</span>)[idx]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>应当注意，上面的代码中第一个<code>const_cast</code>是为了去除<code>const</code>属性，使得返回出<code>char&amp;</code>，而第二个<code>static_cast</code>是为了构造出<code>const TextBlock&amp;</code>类型的对象，上面也提到，对于普通类型的如无明确需要默认会调用普通版本的<code>operator[]</code>，因此需要将对象转换为<code>const</code>的，保证调用<code>const operator[]</code>，避免陷入无限递归。通过两个<code>cast</code>实现了避免代码重用。</p>
@@ -625,9 +625,20 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 5
+        Total : 6
         </div>
         <!-- search  -->
         
@@ -640,6 +651,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href="/2019/03/11/effective-C-5/">effective-C++(5)</a>
+        </li>
     
     
         <li class="archive-post-item">
