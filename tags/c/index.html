@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/18/effective-C-6/">
+            
+                <span>effective-C++(6)</span>
+        </a>
+        <div class="abstract-content">
+            条款32：确定你的public继承塑模出is-a关系public继承中表示类之间的关系是严格的is-a关系，代表基类中所有的函数都适用于继承类，如penguin继承于bird，如果需求中bird需要fly，那么直接public继承于带fly函数的bird是不合适的，同理还有square继承于带单独实现调整width的rectangle也是不合适的，前者的话可以考虑单独的bird，区分flyingbird和penguin这样不飞的bird。所以实际上是否public继承也是取决于需求和业务场景，并需要及时调整。
+条款33：避免遮掩继承而来的名称C++的作用域而言，如果一个作用域中找不到合适...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/03/11/effective-C-5/">
             
                 <span>effective-C++(5)</span>
@@ -661,9 +691,20 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 7
+        Total : 8
         </div>
         <!-- search  -->
         
@@ -676,6 +717,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/18</span><a class="archive-post-title" href="/2019/03/18/effective-C-6/">effective-C++(6)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -717,9 +763,9 @@
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
-    
         <span class="sidebar-tag-name" data-tags="C++"><span class="iconfont-archer">&#xe606;</span>C++</span>
+    
+        <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
