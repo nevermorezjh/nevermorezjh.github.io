@@ -346,303 +346,26 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/effective-C-7/">
+        <a class="abstract-title" href="/2019/02/20/leetcode-907/">
             
-                <span>effective-C++(7)</span>
+                <span>leetcode(907)</span>
         </a>
         <div class="abstract-content">
-            条款41：了解隐式接口和编译期多态class的多态比较常见，它是以函数签名为中心，通过virtual实现的运行期多态，而template则是隐式的接口，通过template具现化和函数重载解析实现的多态，发生在编译期。编译期相对于运行期的优势就在于将代码的出错时间提早了，在编译期就能发现bug，而且编译期能够完成的东西，提前到编译期完成一般来说也能够提高运行期的效率。
-条款42：了解typename的双重意义在模板上的typename和class意义其实是一样的，可以根据习惯随意调换使用。
-12template&lt;typename T&gt; class Widget;templat...
+            leetcode907题，题意很简单，就是计算数组所有的连续子数组的最小值的和。
+有两种做法，一种是单调栈，一种是单调队列。
+先说单调栈，思路就是找到数组中数字作为子数组最小值的左右边界，然后计算即可。如3 1 2 4，对于1来说，左边界就是最左端，右边界就是最右端，那么1作为最小值的子数组就有2×3个（离左端距离2，右端距离3），类似的，对2来说就是1×2。因此只需要计算得到每个数作为最小值的左右边界，即可完成。而要高效计算左右边界，则引入了单调栈的结构。
+单调栈，顾名思义，它首先是一个栈，而且内部是单调有序的。使用单调栈的重要原因是，当我们从左到右，检测数字右边界的过程中，较大数能到...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-搬运老博客汇总/">
-            
-                <span>leetcode-搬运老博客汇总</span>
-        </a>
-        <div class="abstract-content">
-            好像是大二还是大三的算法课上老师要求刷leetcode写博客，然后我当时已经刷了不少题了，就直接堆了题目数量，做了一个当时的小汇总，现在搬运一下（偷懒），嘿嘿。
-1. Two Sum用map建立number-&gt;index映射即可。
-2. Add Two Numbers利用链表的基本操作来模拟高精度相加过程，链表头为最低位
-3. Longest Substring Without Repeating Characters贪心，从头开始扫，遇到重复了，若上一个位置为i，则将i之前的字母去掉，继续贪心即可。
-4. Median of Two Sorted Arrays二分+递归，扩展到找...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/20</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-995/">
-            
-                <span>leetcode-995</span>
-        </a>
-        <div class="abstract-content">
-            题意就是给你一个01数组，还有一个K，要求一次翻转要翻转K个连续的01值，问最少翻多少次能够使得整个数组变成全部都是1的。
-跟灯泡问题类似，解决的思路很简单，就是从一端开始，如果遍历到0，那么必须从它开始翻转K的01值，首先因为该处是0，所以必须要进行翻转操作，而如果在它之前翻转，那么它前面的1值都也会被翻转，破坏了前面的结构，因此必须从遍历到的0开始，往后翻转K个位置，看最终能够将整个数组翻转成为目标数组（就算目的不是要求数组数字全部都为1，应该也是一样的思路）。那么就有一个比较naive的做法，就是将这个过程模拟，然而复杂度是$O(n^2)$的，题目会卡一下…虽然运气好也能过。
-na...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/18/effective-C-6/">
-            
-                <span>effective-C++(6)</span>
-        </a>
-        <div class="abstract-content">
-            条款32：确定你的public继承塑模出is-a关系public继承中表示类之间的关系是严格的is-a关系，代表基类中所有的函数都适用于继承类，如penguin继承于bird，如果需求中bird需要fly，那么直接public继承于带fly函数的bird是不合适的，同理还有square继承于带单独实现调整width的rectangle也是不合适的，前者的话可以考虑单独的bird，区分flyingbird和penguin这样不飞的bird。所以实际上是否public继承也是取决于需求和业务场景，并需要及时调整。
-条款33：避免遮掩继承而来的名称C++的作用域而言，如果一个作用域中找不到合适...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/12/leetcode-975/">
-            
-                <span>leetcode-975</span>
-        </a>
-        <div class="abstract-content">
-            题意很有意思，定义一个操作是奇偶跳跃，第奇数次跳跃，就必须跳往大于等于自己的，并且是往前最近的一个位置，而第偶数次跳跃，就要跳往小于等于自己的，并且是往前最近的一个位置。问，可以从任意一个位置启动，有多少个可以启动到达到最后一个位置的位置。
-首先，这是跳跃相关的问题，因此有dp的思路，从一段的跳跃，逐渐扩展到整一段的跳跃。而这题，因为是跳跃到前面自己最靠近的位置，因此必须从后往前dp。如果从前往后dp，会发现后面加入的位置，可能成为前面的点更应该跳跃到的位置，从而导致了dp没有递推性，公式不成立，而从后往前dp就不会有这样的问题。
-而第二个问题，就是如何找到自己最靠近的数，也就是跳跃点的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/11/effective-C-5/">
-            
-                <span>effective-C++(5)</span>
-        </a>
-        <div class="abstract-content">
-            条款26：尽可能延后变量定义式的出现时间延后变量定义的时间考虑的点有两个，一个是防止变量没有用上，就陷入了异常当中，导致变量构造和析构的不必要开销，另一个则是出于RAII的考虑，不应当无内容地构造一个变量，需要用到的时候再创建出来即可，代码优美，可读性高。
-还有一个考虑的场景是循环内的变量，应该在循环内需要用到再构造还是在循环外先构造好，减少析构函数的开销，其实根据条款来说自然是倾向于在循环内构造，因为循环外构造会遇到的问题就是变量的作用域变大了，不够美观和安全的同时，也出现了没有凭空构造对象的状况（个人觉得，这种代码也有点不够美观…），当然，如果是在效率要求比较高的代码环境下，在循环外...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/05/effective-C-4/">
-            
-                <span>effective-C++(4)</span>
-        </a>
-        <div class="abstract-content">
-            条款18：让接口容易被正确使用，不易被误用本条款精髓在一个先发制人，也就是说，接口设计者会对接口进行特别的设计，来保证接口使用者按照一定规则来使用接口，避免误用，提高可读性，提高bug定位的速度。
-举个例子，如下面的日期类构造函数。
-123456class Date &#123;public:	Date(int month, int day, int year);&#125;;Date d(5, 3, 1995);
-上述代码中，使用者或者reviewer不一定能发现是5月3日还是3月5日，甚至出bug的时候也不容易发现这小细节（虽然是可以在构造函数中构建日志…）但是更直接地提高可读性的方...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/effective-c-3/">
-            
-                <span>effective-C++(3)</span>
-        </a>
-        <div class="abstract-content">
-            条款13：以对象管理资源这一章基本都是推销智能指针， 以及讲智能指针可能需要注意的事情，但是稍微比较老了，还在讲auto_ptr的事情，印象中，C++11就已经废除了auto_ptr，只有unique_ptr，shared_ptr，weak_ptr三种指针了，因此后面还要补充一下这三种指针的实现，使用场景，还有具体为什么废除auto_ptr的原因，等等的关于智能指针的内容（希望记得）。
-这里就讲到了一个很重要的概念，Resource Acquisition Is Initialization(RAII)，意思就是资源取得的时机也是它初始化的时间，在C++中，就需要很好地管理好变量的生命周...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/25/effective-C-2/">
-            
-                <span>effective-C++(2)</span>
-        </a>
-        <div class="abstract-content">
-            条款05：了解C++默默编写并调用哪些函数一个完整的C++类，必然包含了构造函数，析构函数，copy构造函数，copy assignment操作符函数，如果没有写这些函数，那么编译器将会生成default版本的函数，大致来说，隐患主要来源于copy构造函数，copy assignment操作符函数过于暴力。默认版本的这两个函数都会直接将rhs的值粗暴地用等号赋值起来，那么对于const的成员，显然会直接报错，另外，对于引用值来说，也是一个很难发现的隐患，因为引用是不可以修改的，如下面的代码
-12345string a = "10", b = "1";string &amp;c = a;c...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/22/effective-c-1/">
-            
-                <span>effective C++(1)</span>
-        </a>
-        <div class="abstract-content">
-            条款01： 视C++为一个语言联邦简单来说，就是四个次语言，C，object-oriented C++，template C++， stl。
-实际上，入门C++很多年了，而且也不是第一次看effective c++了，现在借此博客来重新阅读学习一遍，并做一些总结。
-条款02：尽量以const，enum，inline替换#define不使用#define的原因，主要可以用“宁可以编译器替换预处理器”来解释，就是说，#define的内容可能被预处理器直接替代，编译器并无法看到实际编程使用的记号，那么报错的时候将直接使用替代的元素，代码可读性可能没什么区别，但是编译报错之后可能很难定位bug的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
     
 </div>
             
@@ -652,7 +375,7 @@ na...
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/2019/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
     </nav>
     
 </main>
