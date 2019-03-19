@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.8k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -417,6 +417,8 @@ height:50vh;
 <h2 id="条款39：明智而审慎地使用private继承"><a href="#条款39：明智而审慎地使用private继承" class="headerlink" title="条款39：明智而审慎地使用private继承"></a>条款39：明智而审慎地使用private继承</h2><p>private继承跟public继承不同，没有办法做到动态调用，因为private继承会把所有基类成员函数转换成private，无法保证函数还能够public调用。另外，private继承能保证的是继承类能够访问到基类的public和protected成员，而private成员将无法访问。</p>
 <p>实际上，private继承意味着is-implemented-in-terms-of，跟复合一样，然而它的级别往往比复合要低。好处的地方是，相比起复合来说，不仅能访问public的，更是多了可以访问protected的成员，并且virtual函数也能继承过来，并override<br>它，否则一般而言还是使用复合的处理方法更加合适。还有一个优点是empty base最优化。</p>
 <h2 id="条款40：明智而审慎地使用多重继承"><a href="#条款40：明智而审慎地使用多重继承" class="headerlink" title="条款40：明智而审慎地使用多重继承"></a>条款40：明智而审慎地使用多重继承</h2><p>多重继承上就体现了virtual继承的重要性，但是virtual继承同时也会带来大小，速度，初始化复杂度等成本，如果virtual base classes不带任何数据，那么将是最具实用价值的情况。</p>
+<p>用法如下，可以看到dataA的地址是一样的，也就是指向了同样的数据位置，而如果不在B和C之间安排virtual继承的话，D中的数据是没有办法优化去除ambiguous的，因为虚继承的实现机制是在基类（B和C）中建立虚表（vptr），来指向同样的位置，在D中才安排virtual继承是没有效果的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dataA;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dataB;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span> <span class="keyword">virtual</span> <span class="keyword">public</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dataC;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span> <span class="keyword">public</span> B, <span class="keyword">public</span> C &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dataD;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    D d;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;(&amp;d.dataA)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;(&amp;(d.B::dataA))&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;(&amp;(d.C::dataA))&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>多重继承也有正当用途，如“public继承某个interface class”和“private继承某个协助实现的class”的两相结合，但是场景还是相对较少。</p>
 
     </article>
@@ -568,10 +570,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
