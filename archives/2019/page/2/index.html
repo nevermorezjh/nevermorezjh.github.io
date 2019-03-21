@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/02/25/effective-C-2/">
+            
+                <span>effective-C++(2)</span>
+        </a>
+        <div class="abstract-content">
+            条款05：了解C++默默编写并调用哪些函数一个完整的C++类，必然包含了构造函数，析构函数，copy构造函数，copy assignment操作符函数，如果没有写这些函数，那么编译器将会生成default版本的函数，大致来说，隐患主要来源于copy构造函数，copy assignment操作符函数过于暴力。默认版本的这两个函数都会直接将rhs的值粗暴地用等号赋值起来，那么对于const的成员，显然会直接报错，另外，对于引用值来说，也是一个很难发现的隐患，因为引用是不可以修改的，如下面的代码
+12345string a = "10", b = "1";string &amp;c = a;c...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/22/effective-c-1/">
             
                 <span>effective C++(1)</span>
@@ -640,9 +670,26 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 12
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -655,6 +702,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/21</span><a class="archive-post-title" href="/2019/03/21/muduo-1/">muduo-(1)</a>
+        </li>
     
     
         <li class="archive-post-item">
