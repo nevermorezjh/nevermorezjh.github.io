@@ -398,7 +398,7 @@ height:50vh;
         <p>题意是给出一个数组，要求三元组(a,b,c)，使得gcd(a,b,c)=1，求这些三元组的数量。数组大小和数的范围都是1到1e5。</p>
 <p>一开始想的是基本的容斥原理，后来大佬说到可以直接套莫比乌斯反演，没想到有限域学到的莫比乌斯反演能这样用（查了一下才发现是基本NOI，ACM的模板题了，之前还没见过orz）。</p>
 <p>学习了一下，首先先简单介绍一下莫比乌斯反演。其公式表示如下：</p>
-<script type="math/tex; mode=display">b(n) = \sum_{d|n}a(d) iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)</script><p>证明过程就简略了，主要思想就是将一个较难做的$a(n)$函数，转化成较简单的$b(n)$去求解，有限域上给的应用例子是欧拉函数相关的，$\sum<em>{d|n}\phi(d) = n$，因为直接计算欧拉函数复杂度稍高，那么就可以通过转化来计算欧拉函数$\phi(n)=\sum</em>{d|n}\mu(d)\frac{n}{d}$。 </p>
+<script type="math/tex; mode=display">b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)</script><p>证明过程就简略了，主要思想就是将一个较难做的$a(n)$函数，转化成较简单的$b(n)$去求解，有限域上给的应用例子是欧拉函数相关的，$\sum<em>{d|n}\phi(d) = n$，因为直接计算欧拉函数复杂度稍高，那么就可以通过转化来计算欧拉函数$\phi(n)=\sum</em>{d|n}\mu(d)\frac{n}{d}$。 </p>
 <p>介绍最直接的莫比乌斯反演入门题，就是给两个区间，从每个区间各取一个数，求有多少对互素的数。直接求$gcd(a,b)==1$的数量复杂度较高，那么可以转换一下求$1 | gcd(a,b)$的数量，因为那是可以直接求到的，如枚举$k=2$时，就只需要求两个区间内的偶数数量，然后做组合数即可，两次除法一次乘法，从而从简单问题的角度解决了较难的问题（此处扩展来说就不一定是素数了，把1改成其他数即可）。唔 可能有人会问对应的$n$和$d$是什么，我也有这样的疑问，而我的想法是，$n$甚至可以是那段阶乘，所以实际计算过程需要遍历区间内每一个数。</p>
 <p>那么回到笔试题目来，题目给出的是可能包含重复数的正整数数组，要求三元组，那么就使用同样的套路即可，尽管不是连续的整数，但是函数的表达还是一样的要求$gcd(a,b,c)==1$的数量，转换成求$1 | gcd(a,b,c) == 0$的数量，然后套上莫比乌斯反演公式即可。而因为此处不是连续的数字，所以可能要花点功夫，因为数的范围还是1e5，因此可以将数都放到桶里面方便取，然后间隔着去找$gcd(a,b,c)=k % 1 == 0$的数量，如要$k$的，那就从$k$开始，取$k$, $2k$, $3k$的数即可，这里要注意一点就是，我们求的是$cd(a,b,c)=k % 1 == 0$的数量，因此尽管$buckets[k]$可能为0，但是那一系列数还是能取到满足要求的，那么是否会重复计数呢？公式里面其实就已经考虑了这个问题，所以不用担心（逃）。</p>
 <p>代码如下，添加了一个暴力的用于检验答案对错。</p>
@@ -723,6 +723,14 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 15
@@ -766,12 +774,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
         </li>
     
     
