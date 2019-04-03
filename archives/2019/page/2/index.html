@@ -346,6 +346,68 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/05/effective-C-4/">
+            
+                <span>effective-C++(4)</span>
+        </a>
+        <div class="abstract-content">
+            条款18：让接口容易被正确使用，不易被误用本条款精髓在一个先发制人，也就是说，接口设计者会对接口进行特别的设计，来保证接口使用者按照一定规则来使用接口，避免误用，提高可读性，提高bug定位的速度。
+举个例子，如下面的日期类构造函数。
+123456class Date &#123;public:	Date(int month, int day, int year);&#125;;Date d(5, 3, 1995);
+上述代码中，使用者或者reviewer不一定能发现是5月3日还是3月5日，甚至出bug的时候也不容易发现这小细节（虽然是可以在构造函数中构建日志…）但是更直接地提高可读性的方...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/03/04/effective-c-3/">
+            
+                <span>effective-C++(3)</span>
+        </a>
+        <div class="abstract-content">
+            条款13：以对象管理资源这一章基本都是推销智能指针， 以及讲智能指针可能需要注意的事情，但是稍微比较老了，还在讲auto_ptr的事情，印象中，C++11就已经废除了auto_ptr，只有unique_ptr，shared_ptr，weak_ptr三种指针了，因此后面还要补充一下这三种指针的实现，使用场景，还有具体为什么废除auto_ptr的原因，等等的关于智能指针的内容（希望记得）。
+这里就讲到了一个很重要的概念，Resource Acquisition Is Initialization(RAII)，意思就是资源取得的时机也是它初始化的时间，在C++中，就需要很好地管理好变量的生命周...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/25/effective-C-2/">
             
                 <span>effective-C++(2)</span>
@@ -687,9 +749,33 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 15
         </div>
         <!-- search  -->
         
@@ -702,6 +788,16 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/03</span><a class="archive-post-title" href="/2019/04/03/网易游戏笔试题-莫比乌斯反演/">网易游戏笔试题-莫比乌斯反演</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/27</span><a class="archive-post-title" href="/2019/03/27/muduo-2/">muduo-(2)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -720,12 +816,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
         </li>
     
     

@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>effective-C++(5) · nevermorezjh&#39;s Studio</title>
+    <title>muduo-(2) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">nevermorezjh&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">effective-C++(5)</a>
+                <a href="#" class="post-name">muduo-(2)</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            effective-C++(5)
+            muduo-(2)
             <!-- 404 -->
             
         </h1>
@@ -272,12 +272,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.8k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">491</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/03/11</span>
+                    <span class="post-intro-time">2019/03/27</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,31 +401,8 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="条款26：尽可能延后变量定义式的出现时间"><a href="#条款26：尽可能延后变量定义式的出现时间" class="headerlink" title="条款26：尽可能延后变量定义式的出现时间"></a>条款26：尽可能延后变量定义式的出现时间</h2><p>延后变量定义的时间考虑的点有两个，一个是防止变量没有用上，就陷入了异常当中，导致变量构造和析构的不必要开销，另一个则是出于RAII的考虑，不应当无内容地构造一个变量，需要用到的时候再创建出来即可，代码优美，可读性高。</p>
-<p>还有一个考虑的场景是循环内的变量，应该在循环内需要用到再构造还是在循环外先构造好，减少析构函数的开销，其实根据条款来说自然是倾向于在循环内构造，因为循环外构造会遇到的问题就是变量的作用域变大了，不够美观和安全的同时，也出现了没有凭空构造对象的状况（个人觉得，这种代码也有点不够美观…），当然，如果是在效率要求比较高的代码环境下，在循环外定义还是有一定的意义的，而且变量作用域的问题也可以直接添加一个大括号作为scope来解决。</p>
-<h2 id="条款27：尽量少做转型操作"><a href="#条款27：尽量少做转型操作" class="headerlink" title="条款27：尽量少做转型操作"></a>条款27：尽量少做转型操作</h2><p>C风格的转型动作也成为旧式转型，主要如下</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(T)expression;</span><br><span class="line">T(expression);</span><br></pre></td></tr></table></figure>
-<p>而C++则提供多了其余四种转型类型</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const_cast</span>&lt;T&gt;(expression);</span><br><span class="line"><span class="keyword">dynamic_cast</span>&lt;T&gt;(expression);</span><br><span class="line"><span class="keyword">reinterpret_cast</span>&lt;T&gt;(expression);</span><br><span class="line"><span class="keyword">static_cast</span>&lt;T&gt;(expression);</span><br></pre></td></tr></table></figure>
-<p>C++中运用新型转型的意义有两个，一个是代码辨识度高，容易区别出哪些地方出现了类型系统问题，第二个则是各类型动作的目标窄化，有利于编译器和人为判断出出错位置。</p>
-<p>对于C风格的旧型转型，作者更加倾向于只在需要explicit构造的函数中使用，其余地方均使用C++的转型类型。</p>
-<p>而下面有几个需要注意的问题。</p>
-<p>第一个是对于某些平台上（如嵌入式平台），继承类的对象指针跟基类的对象指针有一定的偏移量，但是某些平台上（如pc）则没有这种偏移量（undefined behavior）。如下面的代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span>...&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span> <span class="keyword">public</span> Base &#123;...&#125;;</span><br><span class="line">Derived d;</span><br><span class="line">Base *pb = &amp;d;</span><br></pre></td></tr></table></figure>
-<p>此时出现了一定的类型转换，而对于习惯偏移量的程序员来说，如果过于对自己过于自信，直接添加偏移量来获得Derived类的指针位置，则必然导致错误。</p>
-<p>第二个则是自作聪明地写出了似是而非的代码。如下面的代码中，<code>static_cast&lt;Base&gt;(*this).incAndGetVal();</code>，看似调用的是基类型的函数，但是如果深入到构造的过程就会发现，类型转换的过程中出现了拷贝构造行为，也就是说类型转换过程包含了拷贝构造的过程，调用的函数也是调用拷贝的对象的函数，那么如果程序员这时候以为自己调用的是本对象的成员函数，以为成功对本对象的成员进行了操作，那么则会导致比较难以察觉的错误，正确的方法则是直接调用基类域中的函数即可<code>Base::incAndGetVal()</code>。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Base(<span class="keyword">int</span> v): val(v) &#123;  <span class="built_in">cout</span>&lt;&lt;<span class="string">"Base constructor"</span>&lt;&lt;<span class="built_in">endl</span>;  &#125;</span><br><span class="line">    Base(<span class="keyword">const</span> Base &amp;rhs): val(rhs.val) &#123; <span class="built_in">cout</span>&lt;&lt;<span class="string">"Base copy constructor"</span>&lt;&lt;<span class="built_in">endl</span>;  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">incAndGetVal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        val++;</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">virtual</span> ~Base() &#123; <span class="built_in">cout</span>&lt;&lt;<span class="string">"Base deconstructor"</span>&lt;&lt;<span class="built_in">endl</span>;  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derive</span>:</span> <span class="keyword">private</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Derive(<span class="keyword">int</span> v): Base(v) &#123;  <span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived constructor"</span>&lt;&lt;<span class="built_in">endl</span>;  &#125;</span><br><span class="line">    Derive(<span class="keyword">const</span> Derive &amp;rhs): Base(rhs) &#123;  <span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived copy constructor"</span>&lt;&lt;<span class="built_in">endl</span>;  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">incAndGetVal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">static_cast</span>&lt;Base&gt;(*<span class="keyword">this</span>).incAndGetVal();</span><br><span class="line">    &#125;</span><br><span class="line">    ~Derive() &#123; <span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived deconstructor"</span>&lt;&lt;<span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="function">Derive <span class="title">test</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;test.incAndGetVal()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;test.incAndGetVal()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还有就是注意dynamic_cast的调用，因为这种调用的成本很高，会在运行的过程中反复调用<code>strcmp</code>函数，来找到你要转换成的继承对象，进而通过基类指针调用到你想调用的继承类对象的成员函数。如果可以，把变量直接声明成对应的继承类型即可，减少了运行期的开销。</p>
-<h2 id="条款28：避免返回handles指向对象内部部分"><a href="#条款28：避免返回handles指向对象内部部分" class="headerlink" title="条款28：避免返回handles指向对象内部部分"></a>条款28：避免返回handles指向对象内部部分</h2><p>为了提高类的封装性，自然是要避免返回handles（包括references，指针，迭代器等）指向对象内部，并且帮助const成员对象的行为像个const（记得什么时候要返回const类型），并防止dangling handles（因为返回对象会马上被析构，指针指向它自然就dangling了）。</p>
-<h2 id="条款29：为“异常安全”而努力是值得的"><a href="#条款29：为“异常安全”而努力是值得的" class="headerlink" title="条款29：为“异常安全”而努力是值得的"></a>条款29：为“异常安全”而努力是值得的</h2><p>异常安全需要保证两个方面，第一个是不泄露任何资源（抛出异常的时候保证所有资源能够被正常析构），第二个则是不允许数据破坏（抛出异常的时候要保证数据操作正确，不受异常影响）。</p>
-<p>三个保证，基本承诺（没有对象数据被损坏），强烈保证（跟调用出现异常的函数之前一模一样），不抛掷保证（nothrow）。</p>
-<p>下面是简单的copy and swap策略介绍。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PMImpl</span> &#123;</span></span><br><span class="line">	<span class="built_in">shared_ptr</span>&lt;Image&gt; bgImage;</span><br><span class="line">	<span class="keyword">int</span> imageChanges;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrettyMenu</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Mutex mutex;</span><br><span class="line">	<span class="built_in">shared_ptr</span>&lt;PMImpl&gt; pImpl;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> PrettyMenu::changeBackground(<span class="built_in">std</span>::istream&amp; imgSrc) &#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="built_in">std</span>::swap;</span><br><span class="line">	<span class="function">Lock <span class="title">ml</span><span class="params">(&amp;mutex)</span></span>;</span><br><span class="line">	<span class="built_in">shared_ptr</span>&lt;PMImpl&gt; pNew(<span class="keyword">new</span> PMImpl(*pImpl));</span><br><span class="line">	pNew-&gt;bgImage.reset(<span class="keyword">new</span> Image(imgSrc));</span><br><span class="line">	++pNew-&gt;bgImage.imageChanges;</span><br><span class="line">	swap(pImpl, pNew);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里主要防止了构造新的<code>pImpl</code>的过程中抛出异常，导致原来的<code>pImpl</code>的数据出现问题，而且作为指针，swap的开销也并不高，当然这种策略的应用范围也有一定的条件限制，因此还需要特殊情况特殊分析。</p>
-<h2 id="条款30：透彻了解inlining的里里外外"><a href="#条款30：透彻了解inlining的里里外外" class="headerlink" title="条款30：透彻了解inlining的里里外外"></a>条款30：透彻了解inlining的里里外外</h2><p>inline函数背后提高效率的优化概念就是，将每个调用的函数，都以函数的本体来代替，那么如果这样的函数过于频繁地被多处调用，那么将会导致代码膨胀的问题。考虑操作系统的概念，操作系统都会把要运行的代码放到一块内存当中，并采用分页的管理方法，那么如果代码过于膨胀，这样的inline函数会导致程序执行的过程中进行频繁的换页行为，这些损失可以说是得不偿失的。</p>
-<p>而隐式inline的地方更多是在类当中，如果函数直接在类中的声明中实现了，像我上面的<code>Base</code>一样，将会默认是inline函数，而要知道，编译器是会为类生成构造函数，析构函数等函数的，如果直接在类中实现或是不实现，都会导致过多的inline函数，产生了不易发现的效率影响。</p>
-<p>另外，inline函数一般也无法取得函数指针（因为编译器只是按代码段来看待）。所以需要函数指针时，编译器可能会拒绝inline。</p>
-<h2 id="条款31：将文件间的编译依存关系降至最低"><a href="#条款31：将文件间的编译依存关系降至最低" class="headerlink" title="条款31：将文件间的编译依存关系降至最低"></a>条款31：将文件间的编译依存关系降至最低</h2><p>善用handle classes和interface classes。</p>
+        <p>首先复习（预习）一下进程和线程的概念，在传统的操作系统中，进程既是基本的分配单元，也是基本的执行单元，而线程是进程执行的基本单位，一个进程至少拥有一个进程，也可以拥有多个线程。区别在于线程没有地址空间，线程包含在进程的地址空间中。线程上下文只包含一个堆栈、一个寄存器、一个优先权，线程文本包含在他的进程的文本片段中，进程拥有的所有资源都属于线程。所有的线程共享进程的内存和资源。同一进程中的多个线程共享代码段（代码和常量），数据段（全局变量和静态变量），扩展段（堆存储）。但是每个线程拥有自己的栈段， 寄存器的内容，栈段又叫运行时段，用来存放所有局部变量和临时变量。相对于线程的轻量级，进程的创建切换阻塞挂起都需要操作系统来直接管理。</p>
+<p>子进程跟线程不一样，子进程概念来说操作系统会分配新的内存空间，相当于是一个新进程，但是pid与父进程不一致（fork返回值不一样）用于区分父子进程，而实际上为了优化内存，会使用写时复制技术，起初子进程使用的是虚拟空间，段中使用的还是父进程的，但当要修改相应段需要修改时（如正文段，数据段，堆，栈），再复制相应的段，并修改，达到内存优化的效果。而对线程而言，分配的空间是直接地在进程的堆空间中分配，并有guardsize来限制线程栈空间（linux中ulimit -a查看，ulimit -s修改），防止踏入其他空间，造成段错误（segment fault）。</p>
 
     </article>
     <!-- license  -->
@@ -435,16 +412,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/03/12/leetcode-975/" title="leetcode-975">
-                    <div class="nextTitle">leetcode-975</div>
+                <a href="/2019/04/03/网易游戏笔试题-莫比乌斯反演/" title="网易游戏笔试题-莫比乌斯反演">
+                    <div class="nextTitle">网易游戏笔试题-莫比乌斯反演</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/05/effective-C-4/" title="effective-C++(4)">
-                    <div class="prevTitle">effective-C++(4)</div>
+                <a href="/2019/03/21/muduo-1/" title="muduo-(1)">
+                    <div class="prevTitle">muduo-(1)</div>
                 </a>
             
         </li>
@@ -563,7 +540,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#条款26：尽可能延后变量定义式的出现时间"><span class="toc-number">1.</span> <span class="toc-text">条款26：尽可能延后变量定义式的出现时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款27：尽量少做转型操作"><span class="toc-number">2.</span> <span class="toc-text">条款27：尽量少做转型操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款28：避免返回handles指向对象内部部分"><span class="toc-number">3.</span> <span class="toc-text">条款28：避免返回handles指向对象内部部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款29：为“异常安全”而努力是值得的"><span class="toc-number">4.</span> <span class="toc-text">条款29：为“异常安全”而努力是值得的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款30：透彻了解inlining的里里外外"><span class="toc-number">5.</span> <span class="toc-text">条款30：透彻了解inlining的里里外外</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条款31：将文件间的编译依存关系降至最低"><span class="toc-number">6.</span> <span class="toc-text">条款31：将文件间的编译依存关系降至最低</span></a></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
