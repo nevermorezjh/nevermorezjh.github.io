@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">491</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -403,6 +403,7 @@ height:50vh;
     <article class="article-entry">
         <p>首先复习（预习）一下进程和线程的概念，在传统的操作系统中，进程既是基本的分配单元，也是基本的执行单元，而线程是进程执行的基本单位，一个进程至少拥有一个进程，也可以拥有多个线程。区别在于线程没有地址空间，线程包含在进程的地址空间中。线程上下文只包含一个堆栈、一个寄存器、一个优先权，线程文本包含在他的进程的文本片段中，进程拥有的所有资源都属于线程。所有的线程共享进程的内存和资源。同一进程中的多个线程共享代码段（代码和常量），数据段（全局变量和静态变量），扩展段（堆存储）。但是每个线程拥有自己的栈段， 寄存器的内容，栈段又叫运行时段，用来存放所有局部变量和临时变量。相对于线程的轻量级，进程的创建切换阻塞挂起都需要操作系统来直接管理。</p>
 <p>子进程跟线程不一样，子进程概念来说操作系统会分配新的内存空间，相当于是一个新进程，但是pid与父进程不一致（fork返回值不一样）用于区分父子进程，而实际上为了优化内存，会使用写时复制技术，起初子进程使用的是虚拟空间，段中使用的还是父进程的，但当要修改相应段需要修改时（如正文段，数据段，堆，栈），再复制相应的段，并修改，达到内存优化的效果。而对线程而言，分配的空间是直接地在进程的堆空间中分配，并有guardsize来限制线程栈空间（linux中ulimit -a查看，ulimit -s修改），防止踏入其他空间，造成段错误（segment fault）。</p>
+<p>线程通信的话基于的都是进程中的共享变量和内存，主要通过互斥来解决共享数据读写的问题。而进程不一样，一般通过操作系统提供的工具来实现，如linux中的pipe，提供的通信方式是提供文件操作符，在父子或是兄弟进程之间进行单向的通信，如果要实现双向的通信则需要使用两个pipe（半双工）。因此，没有关系的进程之间的相互通信则受到了限制。文中推荐的是只使用TCP来完成通信，好处在于能够实现不同进程之间的通信，因为TCP的实现较为成熟，不仅是C++，更多语言的程序也能够直接通过TCP来进行通信，说白了就是一种通用的通信方式。同时，对于带“连接重试”的网络库来说，进程的启动都具有独立性，能够退出后再启动，重新连接继续工作，对开发牢靠的分布式系统意义巨大。同时，在TCP之上也能构建上层的通信协议。而分布式系统中的长连接使用TCP来实现有点在于两个方面，一个是能够轻松定位分布式系统中的服务之间的依赖关系，通过<code>netstat -tpna | grep :port</code>就能查清服务的客户端地址。第二个则是接受和发送队列的长度都能够定位出网络或程序的故障。如Recv-Q保持不变或是持续增加，那么往往意味着服务进程的处理速度变慢，可能出现了死锁或阻塞。而Send-Q保持不变或持续增加，那么就可能代表对方服务器太忙，处理不过来了，也可能是网络环境出现问题，导致了丢包，或者对方掉线了。这都是可以通过Recv-Q和Send-Q能完成的异常定位。</p>
 
     </article>
     <!-- license  -->
@@ -726,9 +727,43 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 17
         </div>
         <!-- search  -->
         
@@ -741,6 +776,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/03</span><a class="archive-post-title" href="/2019/04/03/leetcode-137/">leetcode-(137)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/03</span><a class="archive-post-title" href="/2019/04/03/leetcode-312/">leetcode-(312)</a>
+        </li>
     
     
         <li class="archive-post-item">
