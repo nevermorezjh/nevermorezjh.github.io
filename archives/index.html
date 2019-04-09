@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/09/leetcode-940/">
+            
+                <span>leetcode-(940)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给定一个字符串，求有多少个不一样的子序列。
+思路1：记忆化搜索，设有一个空的系列头，要求不一样的子序列，显然就要想办法把重复的情况去掉，那么如何去掉了，方法就是排在前面的先出现的字母能构成的子序列用于计算，而排在后面的字母只用于扩展的序列数目，比如说“abaca”，第一个a，第一个b，第一个c是用来计算子序列个数的， 而第二个a因为以第一个a为第一个字母的子序列必然会包括以第二个a为开头的子序列，所以避免重复，只计算第一个a的即可。扩展的过程就很简单了，以第一个a为开头的节点加上后面的字母为开头能构成的子序列的数量再加一即可。以该例子来说，以a开头的子序列的数量，就是以b开头的子序...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/09/leetcode-960/">
             
                 <span>leetcode-(960)</span>
@@ -632,37 +662,6 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
 2. Add Two Numbers利用链表的基本操作来模拟高精度相加过程，链表头为最低位
 3. Longest Substring Without Repeating Characters贪心，从头开始扫，遇到重复了，若上一个位置为i，则将i之前的字母去掉，继续贪心即可。
 4. Median of Two Sorted Arrays二分+递归，扩展到找...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-995/">
-            
-                <span>leetcode-995</span>
-        </a>
-        <div class="abstract-content">
-            题意就是给你一个01数组，还有一个K，要求一次翻转要翻转K个连续的01值，问最少翻多少次能够使得整个数组变成全部都是1的。
-跟灯泡问题类似，解决的思路很简单，就是从一端开始，如果遍历到0，那么必须从它开始翻转K的01值，首先因为该处是0，所以必须要进行翻转操作，而如果在它之前翻转，那么它前面的1值都也会被翻转，破坏了前面的结构，因此必须从遍历到的0开始，往后翻转K个位置，看最终能够将整个数组翻转成为目标数组（就算目的不是要求数组数字全部都为1，应该也是一样的思路）。那么就有一个比较naive的做法，就是将这个过程模拟，然而复杂度是$O(n^2)$的，题目会卡一下…虽然运气好也能过。
-na...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1009,9 +1008,26 @@ na...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 18
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -1024,6 +1040,11 @@ na...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href="/2019/04/09/leetcode-940/">leetcode-(940)</a>
+        </li>
     
     
         <li class="archive-post-item">

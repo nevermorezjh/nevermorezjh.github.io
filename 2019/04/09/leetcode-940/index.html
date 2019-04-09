@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>muduo-(2) · nevermorezjh&#39;s Studio</title>
+    <title>leetcode-(940) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">nevermorezjh&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">muduo-(2)</a>
+                <a href="#" class="post-name">leetcode-(940)</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            muduo-(2)
+            leetcode-(940)
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">870</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/03/27</span>
+                    <span class="post-intro-time">2019/04/09</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,9 +401,13 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>首先复习（预习）一下进程和线程的概念，在传统的操作系统中，进程既是基本的分配单元，也是基本的执行单元，而线程是进程执行的基本单位，一个进程至少拥有一个进程，也可以拥有多个线程。区别在于线程没有地址空间，线程包含在进程的地址空间中。线程上下文只包含一个堆栈、一个寄存器、一个优先权，线程文本包含在他的进程的文本片段中，进程拥有的所有资源都属于线程。所有的线程共享进程的内存和资源。同一进程中的多个线程共享代码段（代码和常量），数据段（全局变量和静态变量），扩展段（堆存储）。但是每个线程拥有自己的栈段， 寄存器的内容，栈段又叫运行时段，用来存放所有局部变量和临时变量。相对于线程的轻量级，进程的创建切换阻塞挂起都需要操作系统来直接管理。</p>
-<p>子进程跟线程不一样，子进程概念来说操作系统会分配新的内存空间，相当于是一个新进程，但是pid与父进程不一致（fork返回值不一样）用于区分父子进程，而实际上为了优化内存，会使用写时复制技术，起初子进程使用的是虚拟空间，段中使用的还是父进程的，但当要修改相应段需要修改时（如正文段，数据段，堆，栈），再复制相应的段，并修改，达到内存优化的效果。而对线程而言，分配的空间是直接地在进程的堆空间中分配，并有guardsize来限制线程栈空间（linux中ulimit -a查看，ulimit -s修改），防止踏入其他空间，造成段错误（segment fault）。</p>
-<p>线程通信的话基于的都是进程中的共享变量和内存，主要通过互斥来解决共享数据读写的问题。而进程不一样，一般通过操作系统提供的工具来实现，如linux中的pipe，提供的通信方式是提供文件操作符，在父子或是兄弟进程之间进行单向的通信，如果要实现双向的通信则需要使用两个pipe（半双工）。因此，没有关系的进程之间的相互通信则受到了限制。文中推荐的是只使用TCP来完成通信，好处在于能够实现不同进程之间的通信，因为TCP的实现较为成熟，不仅是C++，更多语言的程序也能够直接通过TCP来进行通信，说白了就是一种通用的通信方式。同时，对于带“连接重试”的网络库来说，进程的启动都具有独立性，能够退出后再启动，重新连接继续工作，对开发牢靠的分布式系统意义巨大。同时，在TCP之上也能构建上层的通信协议。而分布式系统中的长连接使用TCP来实现有点在于两个方面，一个是能够轻松定位分布式系统中的服务之间的依赖关系，通过<code>netstat -tpna | grep :port</code>就能查清服务的客户端地址。第二个则是接受和发送队列的长度都能够定位出网络或程序的故障。如Recv-Q保持不变或是持续增加，那么往往意味着服务进程的处理速度变慢，可能出现了死锁或阻塞。而Send-Q保持不变或持续增加，那么就可能代表对方服务器太忙，处理不过来了，也可能是网络环境出现问题，导致了丢包，或者对方掉线了。这都是可以通过Recv-Q和Send-Q能完成的异常定位。</p>
+        <p>题意：给定一个字符串，求有多少个不一样的子序列。</p>
+<p>思路1：记忆化搜索，设有一个空的系列头，要求不一样的子序列，显然就要想办法把重复的情况去掉，那么如何去掉了，方法就是排在前面的先出现的字母能构成的子序列用于计算，而排在后面的字母只用于扩展的序列数目，比如说“abaca”，第一个a，第一个b，第一个c是用来计算子序列个数的， 而第二个a因为以第一个a为第一个字母的子序列必然会包括以第二个a为开头的子序列，所以避免重复，只计算第一个a的即可。扩展的过程就很简单了，以第一个a为开头的节点加上后面的字母为开头能构成的子序列的数量再加一即可。以该例子来说，以a开头的子序列的数量，就是以b开头的子序列数量+以c开头的子序列的数量+以第二个a为开头的子序列的数量，最后因为a自己也是一个子序列之一，所以额外加上1即可。这样就算了以a开头的子序列数量了，而这也是为什么要加上一个空序列头的原因，这样就能够直接写记忆化搜索实现了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;str, <span class="keyword">int</span> from, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;dp)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (dp[from] != <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> dp[from];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">bool</span> vis[<span class="number">26</span>] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> length = str.length();</span><br><span class="line">        dp[from] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = from + <span class="number">1</span>; i &lt; length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> idx = str[i] - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span> (!vis[idx])</span><br><span class="line">            &#123;</span><br><span class="line">                vis[idx] = <span class="literal">true</span>;</span><br><span class="line">                dp[from] += dfs(str, i, dp) + <span class="number">1</span>;</span><br><span class="line">                <span class="comment">// cout &lt;&lt; from &lt;&lt; " " &lt;&lt; str[i] &lt;&lt; dp[from] &lt;&lt; endl;</span></span><br><span class="line">                dp[from] %= <span class="keyword">int</span>((<span class="number">1e9</span>) + <span class="number">7</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[from];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">distinctSubseqII</span><span class="params">(<span class="built_in">string</span> S)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = S.length();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(length + <span class="number">1</span>, <span class="number">-1</span>);</span><br><span class="line">        dfs(<span class="built_in">string</span>(<span class="string">"?"</span>) + S, <span class="number">0</span>, dp);</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>算法复杂度是<script type="math/tex">O(n^2)</script>。</p>
+<p>思路2：第一种思路是以序列头来考虑，并找到合适的转移方案来防止重复计算的，那么思路2就是换一种思路，以序列尾来考虑，因为要求”abaca”的子序列数量，而当我们知道”abac”的子序列数量的时候，添加一个a上去之后，能够得到的子序列数量应该如何计算呢？因为以a为结尾的序列数量我们都可以记录得到，那么新序列的数量可以把原来那些以a为结尾的全部拿掉，剩下的，它们分为加a或者不加a就可以了。这种思路跟上一种类似，上面说到以某个字母开头的序列数，我们只需要数最前面那个就可以，而取最后面的字母的序列数，其实我们也是取最后一个字母的就可以了。值得注意的是还有仅有一个a的情况也要考虑，才不会漏掉所有的情况。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">distinctSubseqII</span><span class="params">(<span class="built_in">string</span> S)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ends[<span class="number">26</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> length = S.length();</span><br><span class="line">        <span class="keyword">int</span> res;</span><br><span class="line">        <span class="keyword">int</span> mod = (<span class="number">1e9</span>) + <span class="number">7</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> ch : S)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> added = (res - ends[ch - <span class="string">'a'</span>] + <span class="number">1</span>) % mod;</span><br><span class="line">            res = (res + added) % mod;</span><br><span class="line">            ends[ch - <span class="string">'a'</span>] = (ends[ch - <span class="string">'a'</span>] + added) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>算法复杂度是<script type="math/tex">O(n)</script>，因为不用往后去找后续的序列，在从前往后扫的过程中已经把前置的序列完成了。</p>
 
     </article>
     <!-- license  -->
@@ -412,17 +416,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/03/网易游戏笔试题-莫比乌斯反演/" title="网易游戏笔试题-莫比乌斯反演">
-                    <div class="nextTitle">网易游戏笔试题-莫比乌斯反演</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/21/muduo-1/" title="muduo-(1)">
-                    <div class="prevTitle">muduo-(1)</div>
+                <a href="/2019/04/09/leetcode-960/" title="leetcode-(960)">
+                    <div class="prevTitle">leetcode-(960)</div>
                 </a>
             
         </li>
