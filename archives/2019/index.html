@@ -346,6 +346,30 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/10/百度笔试题/">
+            
+                <span>百度笔试题</span>
+        </a>
+        <div class="abstract-content">
+            第一道题目题意：给定两个整数N和M，求长度为N+1的序列，要求序列第一个数字和最后一个数字均为1，而中间的数字可以从1-M种取，并且序列中相邻的数字不能是相同的，求这样的序列的数量是多少个。
+思路1：这是环形染色问题的特殊版本，染色问题一般来说都是让相邻的区域染上不相同的颜色即可，而环形染色问题就是要求首末位置是相邻的，那么染一圈回来发现位置重了则是不能接受的，那么应该怎么处理呢？简单来说，就是分两种情况，因为我们知道一维的染色问题的结果很简单直接就是m*(m-1)^{n-1}，那环形染色我们可以这样想，假设n个区域的环形，我们要对它进行染色，其方案数目是a_{n}，那么它实际上就是对长...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/09/leetcode-940/">
             
                 <span>leetcode-(940)</span>
@@ -640,39 +664,6 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-搬运老博客汇总/">
-            
-                <span>leetcode-搬运老博客汇总</span>
-        </a>
-        <div class="abstract-content">
-            好像是大二还是大三的算法课上老师要求刷leetcode写博客，然后我当时已经刷了不少题了，就直接堆了题目数量，做了一个当时的小汇总，现在搬运一下（偷懒），嘿嘿。
-1. Two Sum用map建立number-&gt;index映射即可。
-2. Add Two Numbers利用链表的基本操作来模拟高精度相加过程，链表头为最低位
-3. Longest Substring Without Repeating Characters贪心，从头开始扫，遇到重复了，若上一个位置为i，则将i之前的字母去掉，继续贪心即可。
-4. Median of Two Sorted Arrays二分+递归，扩展到找...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
     
 </div>
             
@@ -1000,42 +991,9 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 19
+        Total : 20
         </div>
         <!-- search  -->
         
@@ -1048,6 +1006,11 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2019/04/10/百度笔试题/">百度笔试题</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1219,24 +1182,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+    </body>
 </html>
 
 
