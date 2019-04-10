@@ -396,7 +396,7 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p>第一道题目题意：给定两个整数N和M，求长度为N+1的序列，要求序列第一个数字和最后一个数字均为1，而中间的数字可以从1-M种取，并且序列中相邻的数字不能是相同的，求这样的序列的数量是多少个。</p>
-<p>思路1：这是环形染色问题的特殊版本，染色问题一般来说都是让相邻的区域染上不相同的颜色即可，而环形染色问题就是要求首末位置是相邻的，那么染一圈回来发现位置重了则是不能接受的，那么应该怎么处理呢？简单来说，就是分两种情况，因为我们知道一维的染色问题的结果很简单直接就是<script type="math/tex">m*(m-1)^{n-1}</script>，那环形染色我们可以这样想，假设<script type="math/tex">n</script>个区域的环形，我们要对它进行染色，其方案数目是<script type="math/tex">a_{n}</script>，那么它实际上就是对长度为<script type="math/tex">n+1</script>的一维线性序列进行染色结果首末位置的颜色相同的情况，而对于而剩下的情况，也就是一维序列里面首末位置颜色不一样的情况，我们可以想象在其末尾插入与首位置颜色相同的颜色，就会得到<script type="math/tex">a_{n+1}</script>的方案数目，所以就有<script type="math/tex">a_{n} + a_{n+1} = m*(m-1)^n</script>，这个通项公式是比较容易求的。而对于这道笔试题来说，只是首位置的颜色被确定了，所以最终结果除以<script type="math/tex">m</script>即可。</p>
+<p>思路1：这是环形染色问题的特殊版本，染色问题一般来说都是让相邻的区域染上不相同的颜色即可，而环形染色问题就是要求首末位置是相邻的，那么染一圈回来发现位置重了则是不能接受的，那么应该怎么处理呢？简单来说，就是分两种情况，因为我们知道一维的染色问题的结果很简单直接就是<script type="math/tex">m*(m-1)^{n-1}</script>，那环形染色我们可以这样想，假设<script type="math/tex">n</script>个区域的环形，我们要对它进行染色，其方案数目是<script type="math/tex">a_{n}</script>，那么它实际上就是对长度为<script type="math/tex">n+1</script>的一维线性序列进行染色结果首末位置的颜色相同的情况，而对于而剩下的情况，也就是一维序列里面首末位置颜色不一样的情况，我们可以想象在其末尾插入与首位置颜色相同的颜色，就会得到<script type="math/tex">a_{n+1}</script>的方案数目，所以就有 <script type="math/tex">a_{n} + a_{n+1} = m*(m-1)^n</script> ，这个通项公式是比较容易求的。而对于这道笔试题来说，只是首位置的颜色被确定了，所以最终结果除以<script type="math/tex">m</script>即可。</p>
 <p>思路2：不从环形染色的角度去想，我们其实也可以推导出动态规划的状态转移公式，对于长度为<script type="math/tex">n+1</script>的序列，如果我们知道长度为<script type="math/tex">n</script>的序列，只需要在末尾再插入一个数字即可，方案数为<script type="math/tex">m-2</script>，此时可以注意到因为中间插入了数字，所以倒数第三位变得可以为1了，那此时就可以使用长度为<script type="math/tex">n-1</script>的序列，再其末尾1前面添加一个1，并在两个1中添加新的数字即可，一共有<script type="math/tex">m-1</script>中方案。那么这两种是否有重复的或者有遗漏的呢？其实我们可以发现这样的方法实际上只是区分了两种情况，倒数第三位是否为1，而我们假设<script type="math/tex">n-1</script>和<script type="math/tex">n</script>的情况都是正确的，因此通过数学归纳容易证明这样的计算方法是正确的。递推公式为<script type="math/tex">a_{n+1} = (m-1)a_{n-1} + (m-2)a_n</script>，这种递推公式可以使用特征根方程来求解得到，结果跟思路1的结果是完全一致的。</p>
 <p>再补充一句，在数据量小的情况下，使用递推公式应该没什么问题，但是在大数据的情况下我们就需要求得其通项公式了，并且因为有指数运算，必须使用快速幂乘法，这样就能以<script type="math/tex">O(logn)</script>的复杂度求解到答案。</p>
 <p>第二道题目，印象不是很深，因为题意其实有点不清楚，最后的结果需要套用乘法逆元，而主干的题目是一道记忆化搜索求期望的题目。</p>
@@ -545,6 +545,54 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -958,7 +1006,24 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 </html>
 
 
