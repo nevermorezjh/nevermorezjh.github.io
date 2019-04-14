@@ -399,7 +399,7 @@ height:50vh;
 <p>第一道，普通宽搜。</p>
 <p>第二道，遍历一遍，新老map互相迭代使用。</p>
 <p>第三道，可以数学推导结果，复杂度<script type="math/tex">O(n)</script>，也可以二分答案，复杂度<script type="math/tex">O(nlogn)</script>。</p>
-<p>第四道，最短哈密尔顿回路，dfs超时，用状态压缩dp，dp过程类似Bellman-Ford算法，时间复杂度<script type="math/tex">O(n^{2} 2^{n}</script>。有个很诡异的卡内存点，定义全局变量会爆内存，但是可以声明一个vector的，同等大小而不爆内存，STL的实现本身也是在heap上面分配的内存，尚不明为什么可以用vector不爆内存，而全局变量会爆。</p>
+<p>第四道，最短哈密尔顿回路，dfs超时，用状态压缩dp，dp过程类似Bellman-Ford算法，时间复杂度<script type="math/tex">O(n^{2} 2^{n})</script>。有个很诡异的卡内存点，定义全局变量会爆内存，但是可以声明一个vector的，同等大小而不爆内存，STL的实现本身也是在heap上面分配的内存，尚不明为什么可以用vector不爆内存，而全局变量会爆。</p>
 <p>第五道，贪心，题意不算很清晰，主要原因还是样例给的数据量太小没有参考意义，实际题意是过河只有一艘船，船上至少要有两个人，最多三个，那么就表示过河可以三个人过，而船必须返回继续载人，此时要保证穿上有两个人。贪心策略应该是河两边都有两个较小耗时的人，这样就能在后续保证，过河过程中可以载两个比较耗时的人，而船回去的时候，能够以较短的时间返回到对岸继续载人。一开始没有看清楚题意，所以只A了九分之一，遗憾没有AK，这是笔试后重新回顾题意想的策略，应该没问题。</p>
 
     </article>
@@ -546,32 +546,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
