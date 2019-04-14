@@ -359,6 +359,34 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/14/字节跳动笔试题/">
+            
+                <span>字节跳动笔试题</span>
+        </a>
+        <div class="abstract-content">
+            今天字节跳动的笔试题一共五道题，题数虽然多但是难度都不高。随意记录一下。
+第一道，普通宽搜。
+第二道，遍历一遍，新老map互相迭代使用。
+第三道，可以数学推导结果，复杂度O(n)，也可以二分答案，复杂度O(nlogn)。
+第四道，最短哈密尔顿回路，dfs超时，用状态压缩dp，dp过程类似Bellman-Ford算法，时间复杂度O(n^{2} 2^{n}。有个很诡异的卡内存点，定义全局变量会爆内存，但是可以声明一个vector的，同等大小而不爆内存，STL的实现本身也是在heap上面分配的内存，尚不明为什么可以用vector不爆内存，而全局变量会爆。
+第五道，贪心，题意不算很清晰，主要原因...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/14</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/10/leetcode-947/">
             
                 <span>leetcode-(947)</span>
@@ -645,37 +673,6 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/20/leetcode-1014/">
-            
-                <span>leetcode-(1014)</span>
-        </a>
-        <div class="abstract-content">
-            就是最经典的二分答案题目，放上来顺便记录一下自己喜欢的二分写法还有排序的写法。
-首先是题解，使用的是STL中实现的二分查找方式，也是我比较喜欢的一种，感觉比l和r什么的清晰易懂。
-12345678910111213141516171819202122232425262728class Solution &#123;public:    int shipWithinDays(vector&lt;int&gt;&amp; weights, int D) &#123;        int first = 1, length = 0x3f3f3f3f;        for (auto w: ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
     
 </div>
             
@@ -1145,9 +1142,16 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 22
         </div>
         <!-- search  -->
         
@@ -1160,6 +1164,11 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/14</span><a class="archive-post-title" href="/2019/04/14/字节跳动笔试题/">字节跳动笔试题</a>
+        </li>
     
     
         <li class="archive-post-item">
