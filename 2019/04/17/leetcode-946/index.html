@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>nevermorezjh&#39;s Studio</title>
+    <title>leetcode-(946) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">nevermorezjh&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">leetcode-(946)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">nevermorezjh's Studio.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            leetcode-(946)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">541</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/04/17</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,360 +399,45 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/17/leetcode-946/">
-            
-                <span>leetcode-(946)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定一个入栈序列，还有一个出栈序列，检测出栈序列是否合法。
-思路：题目中要解决的问题是，入栈过程中究竟在那个位置有出栈的操作，而如今我们已经有了假定是正确的出栈顺序，那么出栈碰到的那个元素显然就是我们出栈位置，如第一个元素是3，那么入栈序列中某个3的位置出现了出栈。那么问题来了，是哪一个3呢？问题没有说元素是各不相同的（看数据规模也看出来应该是有重复的），而实际上我们也可以发现，第一个3和第二个3之间，我们可以当作一个子序列，因为是栈，那么第一个3和第二个3的出栈出栈顺序无论如何，其实都是一样的，如（3 2 1 3），所以只需要顺序地模拟，碰到相同的元素就让它出栈即可。
-代码如下
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/17</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>题意：给定一个入栈序列，还有一个出栈序列，检测出栈序列是否合法。</p>
+<p>思路：题目中要解决的问题是，入栈过程中究竟在那个位置有出栈的操作，而如今我们已经有了假定是正确的出栈顺序，那么出栈碰到的那个元素显然就是我们出栈位置，如第一个元素是3，那么入栈序列中某个3的位置出现了出栈。那么问题来了，是哪一个3呢？问题没有说元素是各不相同的（看数据规模也看出来应该是有重复的），而实际上我们也可以发现，第一个3和第二个3之间，我们可以当作一个子序列，因为是栈，那么第一个3和第二个3的出栈出栈顺序无论如何，其实都是一样的，如（3 2 1 3），所以只需要顺序地模拟，碰到相同的元素就让它出栈即可。</p>
+<p>代码如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">validateStackSequences</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; pushed, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; popped)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = pushed.size();</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; st;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!st.empty() &amp;&amp; st.top() == popped[j]) &#123;</span><br><span class="line">                st.pop();</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            st.push(pushed[i]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (!st.empty() &amp;&amp; j &lt; n &amp;&amp; st.top() == popped[j]) &#123;</span><br><span class="line">            st.pop();</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> j==n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这道题回想起来字节跳动还是腾讯的一道面试题，讲的是给定一个入栈顺序求所有出栈顺序的可能数（大致题意好像是这样），其实就是一个卡特兰数，<script type="math/tex">C(2n, n) - C(2n, n-1)</script>，证明方法先考虑出栈数必然等于入栈数，那么入栈表示1，出栈表示0，对于n个元素的序列，出栈数目和入栈数目加起来就是2n，要合法，那就是要保证所有前缀中1的数量大于等于0，那么首先总共有<script type="math/tex">C(2n, n)</script>中选择方法，其中不合法的方法是通过构建映射来。如果枚举出所有可能的话，也直接按这个思路也能做。</p>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/17/leetcode-895/">
-            
-                <span>leetcode-(895)</span>
-        </a>
-        <div class="abstract-content">
-            题意：维护一个频数栈，pop操作会将频数最高的元素pop出来，如果频数一致，那么就按入栈顺序，最后一个入栈的先pop出来，而push自定义，维护好pop的顺序即可。
-思路：维护两个哈希表，即可，一个标记元素的频数，一个标记对应频数的栈，因为频数低的是不会被pop出去，因此只要保证每个频数最高的栈都是正确的即可，那么这个过程可以发现，当最高的频数减一的时候，回到次高的频数，对应的栈其实也是正确的。代码如下。
-12345678910111213141516171819202122class FreqStack &#123;private:    unordered_map&lt;int, i...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/17</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/10/leetcode-947/">
-            
-                <span>leetcode-(947)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定一个grid，上面有一些石头，哪里有石头，我们就可以以它的位置出发，取出同行或同列的一个石头，问最多能取到多少个石头。
-思路：难点在于在复杂的情况下，就是列交上行再交上列，如此交错的情况下，怎么样取才是最优的，能取到最多的石头。而另一方面，我们可以发现，在这样的交错情况下，我们可以把这些石头划为同一个区域，最终能取得的最多石头数量，必然是区域内的石头数量减1，就是有办法最大化石头的取法。如此下来，就可以发现，我们能取到的最大石头数量其实就等于石头总数量减去总的区域数量。而区域的划分的方法也是根据这样的取法而来的，就是哪里有石头，哪里的行和列就能划为同一区域。这个过程也可以发现，...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/09/leetcode-940/">
-            
-                <span>leetcode-(940)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定一个字符串，求有多少个不一样的子序列。
-思路1：记忆化搜索，设有一个空的系列头，要求不一样的子序列，显然就要想办法把重复的情况去掉，那么如何去掉了，方法就是排在前面的先出现的字母能构成的子序列用于计算，而排在后面的字母只用于扩展的序列数目，比如说“abaca”，第一个a，第一个b，第一个c是用来计算子序列个数的， 而第二个a因为以第一个a为第一个字母的子序列必然会包括以第二个a为开头的子序列，所以避免重复，只计算第一个a的即可。扩展的过程就很简单了，以第一个a为开头的节点加上后面的字母为开头能构成的子序列的数量再加一即可。以该例子来说，以a开头的子序列的数量，就是以b开头的子序...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/09/leetcode-960/">
-            
-                <span>leetcode-(960)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定n个长度相等的字符串，问最少删掉多少列能够使得每一个字符串中的字符都是按字典序排好的。
-思路：最长上升子序列的变种。
-1234567891011121314151617181920212223242526272829class Solution &#123;private:    bool check(vector&lt;string&gt; &amp;A, int i, int j) &#123;        int m = A.size();        for (int k=0;k&lt;m;++k) &#123;            if (A[k][i] &gt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/03/leetcode-137/">
-            
-                <span>leetcode-(137)</span>
-        </a>
-        <div class="abstract-content">
-            题意是给出一个数组，里面只有一个数字只出现了一次，其他数字都出现了三次，找出那一个只出现过一次的数字。
-解法：又是有趣的位运算题，这道题其实跟两次的类似，可以换到三进制去做，但是学过数字电路，离散数学什么的，就应该能比较容易想到位运算的做法。我们的目的是输入信号，输入一次的能得到本身，而输入三次能返回到初始状态，那么最终我们就能得到那一个只出现了一次的数字。显然有三个状态，我们则需要两个变量来模拟这个过程。给定输入信号，并对状态编码，则有如下的真值表。
-
-
-
-
-a
-b
-input
-a_out
-b_out
-
-
-
-
-0
-0
-0
-0
-0
-
-
-0
-1
-0
-0
-1
-
-
-1
-0
-0
-1
-0
-
-
-0
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/03/leetcode-312/">
-            
-                <span>leetcode-(312)</span>
-        </a>
-        <div class="abstract-content">
-            就是算法导论上面讲解动态规划的时候最经典的矩阵链乘题目，枚举区间，起点终点，中间点，动态规划即可。貌似也是昨天的网易游戏笔试题目。
-代码如下：
-1234567891011121314151617181920212223242526class Solution&#123;  public:    int maxCoins(const vector&lt;int&gt; &amp;_nums)    &#123;        int n = _nums.size();        vector&lt;vector&lt;int&gt;&gt; dp(n + 2, vector&lt;in...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/20/leetcode-1014/">
-            
-                <span>leetcode-(1014)</span>
-        </a>
-        <div class="abstract-content">
-            就是最经典的二分答案题目，放上来顺便记录一下自己喜欢的二分写法还有排序的写法。
-首先是题解，使用的是STL中实现的二分查找方式，也是我比较喜欢的一种，感觉比l和r什么的清晰易懂。
-12345678910111213141516171819202122232425262728class Solution &#123;public:    int shipWithinDays(vector&lt;int&gt;&amp; weights, int D) &#123;        int first = 1, length = 0x3f3f3f3f;        for (auto w: ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-搬运老博客汇总/">
-            
-                <span>leetcode-搬运老博客汇总</span>
-        </a>
-        <div class="abstract-content">
-            好像是大二还是大三的算法课上老师要求刷leetcode写博客，然后我当时已经刷了不少题了，就直接堆了题目数量，做了一个当时的小汇总，现在搬运一下（偷懒），嘿嘿。
-1. Two Sum用map建立number-&gt;index映射即可。
-2. Add Two Numbers利用链表的基本操作来模拟高精度相加过程，链表头为最低位
-3. Longest Substring Without Repeating Characters贪心，从头开始扫，遇到重复了，若上一个位置为i，则将i之前的字母去掉，继续贪心即可。
-4. Median of Two Sorted Arrays二分+递归，扩展到找...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-995/">
-            
-                <span>leetcode-995</span>
-        </a>
-        <div class="abstract-content">
-            题意就是给你一个01数组，还有一个K，要求一次翻转要翻转K个连续的01值，问最少翻多少次能够使得整个数组变成全部都是1的。
-跟灯泡问题类似，解决的思路很简单，就是从一端开始，如果遍历到0，那么必须从它开始翻转K的01值，首先因为该处是0，所以必须要进行翻转操作，而如果在它之前翻转，那么它前面的1值都也会被翻转，破坏了前面的结构，因此必须从遍历到的0开始，往后翻转K个位置，看最终能够将整个数组翻转成为目标数组（就算目的不是要求数组数字全部都为1，应该也是一样的思路）。那么就有一个比较naive的做法，就是将这个过程模拟，然而复杂度是$O(n^2)$的，题目会卡一下…虽然运气好也能过。
-na...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/04/17/leetcode-895/" title="leetcode-(895)">
+                    <div class="prevTitle">leetcode-(895)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/tags/leetcode/page/2/">2</a><a class="extend next" rel="next" href="/tags/leetcode/page/2/">NEXT &#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -776,6 +522,24 @@ na...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1287,6 +1051,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
