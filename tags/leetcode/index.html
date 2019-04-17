@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/17/leetcode-895/">
+            
+                <span>leetcode-(895)</span>
+        </a>
+        <div class="abstract-content">
+            题意：维护一个频数栈，pop操作会将频数最高的元素pop出来，如果频数一致，那么就按入栈顺序，最后一个入栈的先pop出来，而push自定义，维护好pop的顺序即可。
+思路：维护两个哈希表，即可，一个标记元素的频数，一个标记对应频数的栈，因为频数低的是不会被pop出去，因此只要保证每个频数最高的栈都是正确的即可，那么这个过程可以发现，当最高的频数减一的时候，回到次高的频数，对应的栈其实也是正确的。代码如下。
+12345678910111213141516171819202122class FreqStack &#123;private:    unordered_map&lt;int, i...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/10/leetcode-947/">
             
                 <span>leetcode-(947)</span>
@@ -654,39 +685,11 @@ na...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/20/leetcode-907/">
-            
-                <span>leetcode(907)</span>
-        </a>
-        <div class="abstract-content">
-            leetcode907题，题意很简单，就是计算数组所有的连续子数组的最小值的和。
-有两种做法，一种是单调栈，一种是单调队列。
-先说单调栈，思路就是找到数组中数字作为子数组最小值的左右边界，然后计算即可。如3 1 2 4，对于1来说，左边界就是最左端，右边界就是最右端，那么1作为最小值的子数组就有2×3个（离左端距离2，右端距离3），类似的，对2来说就是1×2。因此只需要计算得到每个数作为最小值的左右边界，即可完成。而要高效计算左右边界，则引入了单调栈的结构。
-单调栈，顾名思义，它首先是一个栈，而且内部是单调有序的。使用单调栈的重要原因是，当我们从左到右，检测数字右边界的过程中，较大数能到...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/tags/leetcode/page/2/">2</a><a class="extend next" rel="next" href="/tags/leetcode/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -1041,9 +1044,68 @@ na...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 22
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1056,6 +1118,11 @@ na...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href="/2019/04/17/leetcode-895/">leetcode-(895)</a>
+        </li>
     
     
         <li class="archive-post-item">

@@ -359,6 +359,37 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/17/leetcode-895/">
+            
+                <span>leetcode-(895)</span>
+        </a>
+        <div class="abstract-content">
+            题意：维护一个频数栈，pop操作会将频数最高的元素pop出来，如果频数一致，那么就按入栈顺序，最后一个入栈的先pop出来，而push自定义，维护好pop的顺序即可。
+思路：维护两个哈希表，即可，一个标记元素的频数，一个标记对应频数的栈，因为频数低的是不会被pop出去，因此只要保证每个频数最高的栈都是正确的即可，那么这个过程可以发现，当最高的频数减一的时候，回到次高的频数，对应的栈其实也是正确的。代码如下。
+12345678910111213141516171819202122class FreqStack &#123;private:    unordered_map&lt;int, i...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/14/字节跳动笔试题/">
             
                 <span>字节跳动笔试题</span>
@@ -636,37 +667,6 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/21/muduo-1/">
-            
-                <span>muduo-(1)</span>
-        </a>
-        <div class="abstract-content">
-            现在转到muduo这本书里学习一下关于C++多线程和网络编程的一些事情，读过一遍之后准备深入到unix网络编程里面，学习一下后台开发相关的一些内容，希望还能实现一个像handy那样的C++网络库。
-首先从第二章开始，学习线程同步相关的内容。
-回顾一下死锁的概念，死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。那么死锁有四个必要条件，互斥（某种资源只能一个进程访问），占有且等待（进程占有着资源并等待它所要的资源），不可抢占（别人的资源不能抢过来），循环等待（进程相互之间的等待构成了循环，死锁的直接原因）。要解...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/21</span>
             </div>
             <!-- tags  -->
             
@@ -1123,9 +1123,68 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 22
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -1138,6 +1197,11 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href="/2019/04/17/leetcode-895/">leetcode-(895)</a>
+        </li>
     
     
         <li class="archive-post-item">
