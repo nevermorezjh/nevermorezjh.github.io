@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>nevermorezjh&#39;s Studio</title>
+    <title>leetcode-(188) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">nevermorezjh&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">leetcode-(188)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">nevermorezjh's Studio.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            leetcode-(188)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">843</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/09</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,199 +399,44 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/11/effective-C-5/">
-            
-                <span>effective-C++(5)</span>
-        </a>
-        <div class="abstract-content">
-            条款26：尽可能延后变量定义式的出现时间延后变量定义的时间考虑的点有两个，一个是防止变量没有用上，就陷入了异常当中，导致变量构造和析构的不必要开销，另一个则是出于RAII的考虑，不应当无内容地构造一个变量，需要用到的时候再创建出来即可，代码优美，可读性高。
-还有一个考虑的场景是循环内的变量，应该在循环内需要用到再构造还是在循环外先构造好，减少析构函数的开销，其实根据条款来说自然是倾向于在循环内构造，因为循环外构造会遇到的问题就是变量的作用域变大了，不够美观和安全的同时，也出现了没有凭空构造对象的状况（个人觉得，这种代码也有点不够美观…），当然，如果是在效率要求比较高的代码环境下，在循环外...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>题意：股票买卖问题，加了买卖次数限制。</p>
+<p>思路：由于没有写明数据范围，最直观的dp思路就是，当我知道前面怎么买卖最赚钱了，而对后面如果要交易次数加一的话，那就是再找一个交易位置就行了，所以显然就有转移的方式了，但是复杂度高达<script type="math/tex">O(n^2k)</script>，所以显然不会是这题期待的方法。然后的话就想起以前的贪心版本题目，不限制次数的，思路就是如果找假设卖出点和买入点，比如说<code>2 3 4 5 1</code>，我们可以看到2的位置可以是买入，因为接下来有一段递增的过程，而在这个过程，自然是首位是获利最多的，因为无论是在中间哪个点卖出再准备买入都会使得收益减少，所以目标就是找到这样的递增序列，然后直接贪心即可。而实际上，这种思路有个更方便的写法，而不是所谓的找递增序列首末，而是先假设买入了2的位置，然后遇到递增，我们可以假设把2卖了，这时候获利为1，而要扩大获利的话，我们可以假设我们现在持有的是3，因为有不卖2的选项，而我们也可以发现，<code>2 3 4</code>我们买2卖4，跟假装买2卖3，并持有3再在4处卖是一样的，收益都是2。而为什么是假装呢，因为我们一直到遇到比下降的地方，如1，那么就可以放手，以5的价格完全卖出去，去找新股票了。那么这种思路扩展开来就是这题的解法了，由于贪心是没有交易次数限制的，那么限制就可以以交易次数来dp转移，也就是当前的买入，是由上次卖出转移的，当前次数的卖出，是由本次的买入转移的。这样就是实现了<script type="math/tex">O(nk)</script>的解法。而深入下去，我们可以发现买入卖出算是2天的，也就是当<script type="math/tex">n \le 2*k</script>的时候，可以交易的次数会大于天数，也就是可以按照贪心来计算，能够处理n不那么大，而k特别大的情况了。下面的代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = prices.size();</span><br><span class="line">        <span class="keyword">if</span> (n/<span class="number">2</span> &lt;= k) <span class="keyword">return</span> greedy(prices); </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(<span class="number">2</span>, INT_MIN));</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p: prices) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][<span class="number">0</span>] = max(dp[<span class="number">0</span>][<span class="number">0</span>], -p);</span><br><span class="line">            dp[<span class="number">0</span>][<span class="number">1</span>] = max(dp[<span class="number">0</span>][<span class="number">1</span>], dp[<span class="number">0</span>][<span class="number">0</span>] + p);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> t=<span class="number">1</span>;t&lt;k;++t) &#123;</span><br><span class="line">                dp[t][<span class="number">0</span>] = max(dp[t<span class="number">-1</span>][<span class="number">1</span>]-p, dp[t][<span class="number">0</span>]);</span><br><span class="line">                dp[t][<span class="number">1</span>] = max(dp[t][<span class="number">0</span>]+p, dp[t][<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;++i) ans = max(dp[i][<span class="number">1</span>], ans);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">greedy</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> cur = INT_MAX, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p: prices) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p &gt; cur) &#123;</span><br><span class="line">                ans += p - cur;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = p;   </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>好久没写个人博客了，虽然没人看，但是还是挺自责的，一方面确实是这段时间没看到什么特别好写的总结，另一方面是自身的状态实在不好…希望能好好打起精神，继续拼起来吧。</p>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/05/effective-C-4/">
-            
-                <span>effective-C++(4)</span>
-        </a>
-        <div class="abstract-content">
-            条款18：让接口容易被正确使用，不易被误用本条款精髓在一个先发制人，也就是说，接口设计者会对接口进行特别的设计，来保证接口使用者按照一定规则来使用接口，避免误用，提高可读性，提高bug定位的速度。
-举个例子，如下面的日期类构造函数。
-123456class Date &#123;public:	Date(int month, int day, int year);&#125;;Date d(5, 3, 1995);
-上述代码中，使用者或者reviewer不一定能发现是5月3日还是3月5日，甚至出bug的时候也不容易发现这小细节（虽然是可以在构造函数中构建日志…）但是更直接地提高可读性的方...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/effective-c-3/">
-            
-                <span>effective-C++(3)</span>
-        </a>
-        <div class="abstract-content">
-            条款13：以对象管理资源这一章基本都是推销智能指针， 以及讲智能指针可能需要注意的事情，但是稍微比较老了，还在讲auto_ptr的事情，印象中，C++11就已经废除了auto_ptr，只有unique_ptr，shared_ptr，weak_ptr三种指针了，因此后面还要补充一下这三种指针的实现，使用场景，还有具体为什么废除auto_ptr的原因，等等的关于智能指针的内容（希望记得）。
-这里就讲到了一个很重要的概念，Resource Acquisition Is Initialization(RAII)，意思就是资源取得的时机也是它初始化的时间，在C++中，就需要很好地管理好变量的生命周...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/25/effective-C-2/">
-            
-                <span>effective-C++(2)</span>
-        </a>
-        <div class="abstract-content">
-            条款05：了解C++默默编写并调用哪些函数一个完整的C++类，必然包含了构造函数，析构函数，copy构造函数，copy assignment操作符函数，如果没有写这些函数，那么编译器将会生成default版本的函数，大致来说，隐患主要来源于copy构造函数，copy assignment操作符函数过于暴力。默认版本的这两个函数都会直接将rhs的值粗暴地用等号赋值起来，那么对于const的成员，显然会直接报错，另外，对于引用值来说，也是一个很难发现的隐患，因为引用是不可以修改的，如下面的代码
-12345string a = "10", b = "1";string &amp;c = a;c...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/22/effective-c-1/">
-            
-                <span>effective C++(1)</span>
-        </a>
-        <div class="abstract-content">
-            条款01： 视C++为一个语言联邦简单来说，就是四个次语言，C，object-oriented C++，template C++， stl。
-实际上，入门C++很多年了，而且也不是第一次看effective c++了，现在借此博客来重新阅读学习一遍，并做一些总结。
-条款02：尽量以const，enum，inline替换#define不使用#define的原因，主要可以用“宁可以编译器替换预处理器”来解释，就是说，#define的内容可能被预处理器直接替代，编译器并无法看到实际编程使用的记号，那么报错的时候将直接使用替代的元素，代码可读性可能没什么区别，但是编译报错之后可能很难定位bug的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/20/leetcode-907/">
-            
-                <span>leetcode(907)</span>
-        </a>
-        <div class="abstract-content">
-            leetcode907题，题意很简单，就是计算数组所有的连续子数组的最小值的和。
-有两种做法，一种是单调栈，一种是单调队列。
-先说单调栈，思路就是找到数组中数字作为子数组最小值的左右边界，然后计算即可。如3 1 2 4，对于1来说，左边界就是最左端，右边界就是最右端，那么1作为最小值的子数组就有2×3个（离左端距离2，右端距离3），类似的，对2来说就是1×2。因此只需要计算得到每个数作为最小值的左右边界，即可完成。而要高效计算左右边界，则引入了单调栈的结构。
-单调栈，顾名思义，它首先是一个栈，而且内部是单调有序的。使用单调栈的重要原因是，当我们从左到右，检测数字右边界的过程中，较大数能到...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/04/23/二叉树转双向链表/" title="二叉树转双向链表">
+                    <div class="prevTitle">二叉树转双向链表</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/page/2/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -615,6 +521,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1176,6 +1100,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({

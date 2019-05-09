@@ -359,6 +359,36 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/09/leetcode-188/">
+            
+                <span>leetcode-(188)</span>
+        </a>
+        <div class="abstract-content">
+            题意：股票买卖问题，加了买卖次数限制。
+思路：由于没有写明数据范围，最直观的dp思路就是，当我知道前面怎么买卖最赚钱了，而对后面如果要交易次数加一的话，那就是再找一个交易位置就行了，所以显然就有转移的方式了，但是复杂度高达O(n^2k)，所以显然不会是这题期待的方法。然后的话就想起以前的贪心版本题目，不限制次数的，思路就是如果找假设卖出点和买入点，比如说2 3 4 5 1，我们可以看到2的位置可以是买入，因为接下来有一段递增的过程，而在这个过程，自然是首位是获利最多的，因为无论是在中间哪个点卖出再准备买入都会使得收益减少，所以目标就是找到这样的递增序列，然后直接贪心即可。而实际上，这种思...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/23/二叉树转双向链表/">
             
                 <span>二叉树转双向链表</span>
@@ -632,37 +662,6 @@ b_out
 
 0
 ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/03/leetcode-312/">
-            
-                <span>leetcode-(312)</span>
-        </a>
-        <div class="abstract-content">
-            就是算法导论上面讲解动态规划的时候最经典的矩阵链乘题目，枚举区间，起点终点，中间点，动态规划即可。貌似也是昨天的网易游戏笔试题目。
-代码如下：
-1234567891011121314151617181920212223242526class Solution&#123;  public:    int maxCoins(const vector&lt;int&gt; &amp;_nums)    &#123;        int n = _nums.size();        vector&lt;vector&lt;int&gt;&gt; dp(n + 2, vector&lt;in...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1189,9 +1188,16 @@ b_out
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -1204,6 +1210,11 @@ b_out
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/leetcode-188/">leetcode-(188)</a>
+        </li>
     
     
         <li class="archive-post-item">

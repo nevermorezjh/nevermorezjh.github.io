@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/09/leetcode-188/">
+            
+                <span>leetcode-(188)</span>
+        </a>
+        <div class="abstract-content">
+            题意：股票买卖问题，加了买卖次数限制。
+思路：由于没有写明数据范围，最直观的dp思路就是，当我知道前面怎么买卖最赚钱了，而对后面如果要交易次数加一的话，那就是再找一个交易位置就行了，所以显然就有转移的方式了，但是复杂度高达O(n^2k)，所以显然不会是这题期待的方法。然后的话就想起以前的贪心版本题目，不限制次数的，思路就是如果找假设卖出点和买入点，比如说2 3 4 5 1，我们可以看到2的位置可以是买入，因为接下来有一段递增的过程，而在这个过程，自然是首位是获利最多的，因为无论是在中间哪个点卖出再准备买入都会使得收益减少，所以目标就是找到这样的递增序列，然后直接贪心即可。而实际上，这种思...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/17/leetcode-946/">
             
                 <span>leetcode-(946)</span>
@@ -638,37 +668,6 @@ b_out
 2. Add Two Numbers利用链表的基本操作来模拟高精度相加过程，链表头为最低位
 3. Longest Substring Without Repeating Characters贪心，从头开始扫，遇到重复了，若上一个位置为i，则将i之前的字母去掉，继续贪心即可。
 4. Median of Two Sorted Arrays二分+递归，扩展到找...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-995/">
-            
-                <span>leetcode-995</span>
-        </a>
-        <div class="abstract-content">
-            题意就是给你一个01数组，还有一个K，要求一次翻转要翻转K个连续的01值，问最少翻多少次能够使得整个数组变成全部都是1的。
-跟灯泡问题类似，解决的思路很简单，就是从一端开始，如果遍历到0，那么必须从它开始翻转K的01值，首先因为该处是0，所以必须要进行翻转操作，而如果在它之前翻转，那么它前面的1值都也会被翻转，破坏了前面的结构，因此必须从遍历到的0开始，往后翻转K个位置，看最终能够将整个数组翻转成为目标数组（就算目的不是要求数组数字全部都为1，应该也是一样的思路）。那么就有一个比较naive的做法，就是将这个过程模拟，然而复杂度是$O(n^2)$的，题目会卡一下…虽然运气好也能过。
-na...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1110,9 +1109,16 @@ na...
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -1125,6 +1131,11 @@ na...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href="/2019/05/09/leetcode-188/">leetcode-(188)</a>
+        </li>
     
     
         <li class="archive-post-item">
