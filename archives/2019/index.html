@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/10/leetcode-354/">
+            
+                <span>leetcode-(354)</span>
+        </a>
+        <div class="abstract-content">
+            题意：信封套，找出信封套信封能够实现的最大信封数。
+思路：转化成一个最长递增子序列问题，要保证能够转化，由于是需要严格递增的序列，所以排序的过程中，保证w的上升同时，w相同时h是需要降序的，从而保证了w相同的不会取得。而最长上升子序列的问题有两种解法，一种是O(n^2)，另外一种是O(nlogn)，这里尝试写了O(nlogn)的方法，思路能够实现的关键点在于替代，也就是允许你重新构建一条更长的子序列，但是前提是不比原来的长就还是按原来的去构建，允许重新构建是因为对于后面的同一个点来说，前面的点越小越有可能构造出更长的序列，所以能够用更小的数替代新更长子序列对应的位置。
+123456789...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/09/leetcode-188/">
             
                 <span>leetcode-(188)</span>
@@ -588,72 +619,6 @@
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/03/leetcode-137/">
-            
-                <span>leetcode-(137)</span>
-        </a>
-        <div class="abstract-content">
-            题意是给出一个数组，里面只有一个数字只出现了一次，其他数字都出现了三次，找出那一个只出现过一次的数字。
-解法：又是有趣的位运算题，这道题其实跟两次的类似，可以换到三进制去做，但是学过数字电路，离散数学什么的，就应该能比较容易想到位运算的做法。我们的目的是输入信号，输入一次的能得到本身，而输入三次能返回到初始状态，那么最终我们就能得到那一个只出现了一次的数字。显然有三个状态，我们则需要两个变量来模拟这个过程。给定输入信号，并对状态编码，则有如下的真值表。
-
-
-
-
-a
-b
-input
-a_out
-b_out
-
-
-
-
-0
-0
-0
-0
-0
-
-
-0
-1
-0
-0
-1
-
-
-1
-0
-0
-1
-0
-
-
-0
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
             </div>
             <!-- tags  -->
             
@@ -1097,9 +1062,46 @@ b_out
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 26
+        Total : 27
         </div>
         <!-- search  -->
         
@@ -1112,6 +1114,11 @@ b_out
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/leetcode-354/">leetcode-(354)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1195,12 +1202,12 @@ b_out
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
         </li>
     
     

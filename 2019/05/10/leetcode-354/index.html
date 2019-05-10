@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>nevermorezjh&#39;s Studio</title>
+    <title>leetcode-(354) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">nevermorezjh&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">leetcode-(354)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">nevermorezjh's Studio.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            leetcode-(354)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">658</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/10</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,323 +399,44 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/27/muduo-2/">
-            
-                <span>muduo-(2)</span>
-        </a>
-        <div class="abstract-content">
-            首先复习（预习）一下进程和线程的概念，在传统的操作系统中，进程既是基本的分配单元，也是基本的执行单元，而线程是进程执行的基本单位，一个进程至少拥有一个进程，也可以拥有多个线程。区别在于线程没有地址空间，线程包含在进程的地址空间中。线程上下文只包含一个堆栈、一个寄存器、一个优先权，线程文本包含在他的进程的文本片段中，进程拥有的所有资源都属于线程。所有的线程共享进程的内存和资源。同一进程中的多个线程共享代码段（代码和常量），数据段（全局变量和静态变量），扩展段（堆存储）。但是每个线程拥有自己的栈段， 寄存器的内容，栈段又叫运行时段，用来存放所有局部变量和临时变量。相对于线程的轻量级，进程的创...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>题意：信封套，找出信封套信封能够实现的最大信封数。</p>
+<p>思路：转化成一个最长递增子序列问题，要保证能够转化，由于是需要严格递增的序列，所以排序的过程中，保证w的上升同时，w相同时h是需要降序的，从而保证了w相同的不会取得。而最长上升子序列的问题有两种解法，一种是<script type="math/tex">O(n^2)</script>，另外一种是<script type="math/tex">O(nlogn)</script>，这里尝试写了<script type="math/tex">O(nlogn)</script>的方法，思路能够实现的关键点在于替代，也就是允许你重新构建一条更长的子序列，但是前提是不比原来的长就还是按原来的去构建，允许重新构建是因为对于后面的同一个点来说，前面的点越小越有可能构造出更长的序列，所以能够用更小的数替代新更长子序列对应的位置。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; dp, <span class="keyword">int</span> len, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> first = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (len &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> half = (len&gt;&gt;<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> mid = first + half;</span><br><span class="line">            <span class="keyword">if</span> (dp[mid] &lt; key) &#123;</span><br><span class="line">                first = mid+<span class="number">1</span>;</span><br><span class="line">                len = len - half<span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                len = half;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> first;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxEnvelopes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; e)</span> </span>&#123;</span><br><span class="line">        sort(e.begin(), e.end(), [](<span class="keyword">auto</span> &amp;lhs, <span class="keyword">auto</span> &amp;rhs) &#123;</span><br><span class="line">            <span class="keyword">return</span> lhs[<span class="number">0</span>] == rhs[<span class="number">0</span>]? (lhs[<span class="number">1</span>] &gt; rhs[<span class="number">1</span>]) : (lhs[<span class="number">0</span>] &lt; rhs[<span class="number">0</span>]); </span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span> n = e.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(n, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> pos = lower_bound(dp, r, e[i][<span class="number">1</span>]);</span><br><span class="line">            dp[pos] = e[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (pos == r) r+=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>思考的过程中，有两个可以延申的话题，第一个是，如果转换成二维坐标的思路，其实就是左下角的点的动态规划，也就是转化成二维的rmq去做，找到左下角最大的信封叠加数量，然后来转移，难写pass，但是如果有这种问题应该能这样转化过来做（以前经常碰到这种找左下角点或者右上角点的题目，通常还是会用bit或者线段树去做）。第二个是，思考的过程中，想到一个实现的问题，就是怎么在一个有序数组上，找一个比某个数小的最大的数，而不是Lower bound那样小于等于，一时间没有想出来，查了一下好像也仅限于在不重复数字上面才有二分查找的思路，其他的话都可能被卡成约为<script type="math/tex">O(n)</script>的方法，基本思路都是Lower bound然后往前找，唔 确实是个问题。</p>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/21/muduo-1/">
-            
-                <span>muduo-(1)</span>
-        </a>
-        <div class="abstract-content">
-            现在转到muduo这本书里学习一下关于C++多线程和网络编程的一些事情，读过一遍之后准备深入到unix网络编程里面，学习一下后台开发相关的一些内容，希望还能实现一个像handy那样的C++网络库。
-首先从第二章开始，学习线程同步相关的内容。
-回顾一下死锁的概念，死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。那么死锁有四个必要条件，互斥（某种资源只能一个进程访问），占有且等待（进程占有着资源并等待它所要的资源），不可抢占（别人的资源不能抢过来），循环等待（进程相互之间的等待构成了循环，死锁的直接原因）。要解...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/20/leetcode-1014/">
-            
-                <span>leetcode-(1014)</span>
-        </a>
-        <div class="abstract-content">
-            就是最经典的二分答案题目，放上来顺便记录一下自己喜欢的二分写法还有排序的写法。
-首先是题解，使用的是STL中实现的二分查找方式，也是我比较喜欢的一种，感觉比l和r什么的清晰易懂。
-12345678910111213141516171819202122232425262728class Solution &#123;public:    int shipWithinDays(vector&lt;int&gt;&amp; weights, int D) &#123;        int first = 1, length = 0x3f3f3f3f;        for (auto w: ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/effective-C-7/">
-            
-                <span>effective-C++(7)</span>
-        </a>
-        <div class="abstract-content">
-            条款41：了解隐式接口和编译期多态class的多态比较常见，它是以函数签名为中心，通过virtual实现的运行期多态，而template则是隐式的接口，通过template具现化和函数重载解析实现的多态，发生在编译期。编译期相对于运行期的优势就在于将代码的出错时间提早了，在编译期就能发现bug，而且编译期能够完成的东西，提前到编译期完成一般来说也能够提高运行期的效率。
-条款42：了解typename的双重意义在模板上的typename和class意义其实是一样的，可以根据习惯随意调换使用。
-12template&lt;typename T&gt; class Widget;templat...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-搬运老博客汇总/">
-            
-                <span>leetcode-搬运老博客汇总</span>
-        </a>
-        <div class="abstract-content">
-            好像是大二还是大三的算法课上老师要求刷leetcode写博客，然后我当时已经刷了不少题了，就直接堆了题目数量，做了一个当时的小汇总，现在搬运一下（偷懒），嘿嘿。
-1. Two Sum用map建立number-&gt;index映射即可。
-2. Add Two Numbers利用链表的基本操作来模拟高精度相加过程，链表头为最低位
-3. Longest Substring Without Repeating Characters贪心，从头开始扫，遇到重复了，若上一个位置为i，则将i之前的字母去掉，继续贪心即可。
-4. Median of Two Sorted Arrays二分+递归，扩展到找...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-995/">
-            
-                <span>leetcode-995</span>
-        </a>
-        <div class="abstract-content">
-            题意就是给你一个01数组，还有一个K，要求一次翻转要翻转K个连续的01值，问最少翻多少次能够使得整个数组变成全部都是1的。
-跟灯泡问题类似，解决的思路很简单，就是从一端开始，如果遍历到0，那么必须从它开始翻转K的01值，首先因为该处是0，所以必须要进行翻转操作，而如果在它之前翻转，那么它前面的1值都也会被翻转，破坏了前面的结构，因此必须从遍历到的0开始，往后翻转K个位置，看最终能够将整个数组翻转成为目标数组（就算目的不是要求数组数字全部都为1，应该也是一样的思路）。那么就有一个比较naive的做法，就是将这个过程模拟，然而复杂度是$O(n^2)$的，题目会卡一下…虽然运气好也能过。
-na...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/18/effective-C-6/">
-            
-                <span>effective-C++(6)</span>
-        </a>
-        <div class="abstract-content">
-            条款32：确定你的public继承塑模出is-a关系public继承中表示类之间的关系是严格的is-a关系，代表基类中所有的函数都适用于继承类，如penguin继承于bird，如果需求中bird需要fly，那么直接public继承于带fly函数的bird是不合适的，同理还有square继承于带单独实现调整width的rectangle也是不合适的，前者的话可以考虑单独的bird，区分flyingbird和penguin这样不飞的bird。所以实际上是否public继承也是取决于需求和业务场景，并需要及时调整。
-条款33：避免遮掩继承而来的名称C++的作用域而言，如果一个作用域中找不到合适...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/12/leetcode-975/">
-            
-                <span>leetcode-975</span>
-        </a>
-        <div class="abstract-content">
-            题意很有意思，定义一个操作是奇偶跳跃，第奇数次跳跃，就必须跳往大于等于自己的，并且是往前最近的一个位置，而第偶数次跳跃，就要跳往小于等于自己的，并且是往前最近的一个位置。问，可以从任意一个位置启动，有多少个可以启动到达到最后一个位置的位置。
-首先，这是跳跃相关的问题，因此有dp的思路，从一段的跳跃，逐渐扩展到整一段的跳跃。而这题，因为是跳跃到前面自己最靠近的位置，因此必须从后往前dp。如果从前往后dp，会发现后面加入的位置，可能成为前面的点更应该跳跃到的位置，从而导致了dp没有递推性，公式不成立，而从后往前dp就不会有这样的问题。
-而第二个问题，就是如何找到自己最靠近的数，也就是跳跃点的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/11/effective-C-5/">
-            
-                <span>effective-C++(5)</span>
-        </a>
-        <div class="abstract-content">
-            条款26：尽可能延后变量定义式的出现时间延后变量定义的时间考虑的点有两个，一个是防止变量没有用上，就陷入了异常当中，导致变量构造和析构的不必要开销，另一个则是出于RAII的考虑，不应当无内容地构造一个变量，需要用到的时候再创建出来即可，代码优美，可读性高。
-还有一个考虑的场景是循环内的变量，应该在循环内需要用到再构造还是在循环外先构造好，减少析构函数的开销，其实根据条款来说自然是倾向于在循环内构造，因为循环外构造会遇到的问题就是变量的作用域变大了，不够美观和安全的同时，也出现了没有凭空构造对象的状况（个人觉得，这种代码也有点不够美观…），当然，如果是在效率要求比较高的代码环境下，在循环外...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/05/effective-C-4/">
-            
-                <span>effective-C++(4)</span>
-        </a>
-        <div class="abstract-content">
-            条款18：让接口容易被正确使用，不易被误用本条款精髓在一个先发制人，也就是说，接口设计者会对接口进行特别的设计，来保证接口使用者按照一定规则来使用接口，避免误用，提高可读性，提高bug定位的速度。
-举个例子，如下面的日期类构造函数。
-123456class Date &#123;public:	Date(int month, int day, int year);&#125;;Date d(5, 3, 1995);
-上述代码中，使用者或者reviewer不一定能发现是5月3日还是3月5日，甚至出bug的时候也不容易发现这小细节（虽然是可以在构造函数中构建日志…）但是更直接地提高可读性的方...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/05/09/leetcode-188/" title="leetcode-(188)">
+                    <div class="prevTitle">leetcode-(188)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/03/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/03/page/2/">NEXT &#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -739,6 +521,24 @@ na...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1342,6 +1142,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({

@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/10/leetcode-354/">
+            
+                <span>leetcode-(354)</span>
+        </a>
+        <div class="abstract-content">
+            题意：信封套，找出信封套信封能够实现的最大信封数。
+思路：转化成一个最长递增子序列问题，要保证能够转化，由于是需要严格递增的序列，所以排序的过程中，保证w的上升同时，w相同时h是需要降序的，从而保证了w相同的不会取得。而最长上升子序列的问题有两种解法，一种是O(n^2)，另外一种是O(nlogn)，这里尝试写了O(nlogn)的方法，思路能够实现的关键点在于替代，也就是允许你重新构建一条更长的子序列，但是前提是不比原来的长就还是按原来的去构建，允许重新构建是因为对于后面的同一个点来说，前面的点越小越有可能构造出更长的序列，所以能够用更小的数替代新更长子序列对应的位置。
+123456789...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/09/leetcode-188/">
             
                 <span>leetcode-(188)</span>
@@ -640,39 +671,6 @@ b_out
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/leetcode-搬运老博客汇总/">
-            
-                <span>leetcode-搬运老博客汇总</span>
-        </a>
-        <div class="abstract-content">
-            好像是大二还是大三的算法课上老师要求刷leetcode写博客，然后我当时已经刷了不少题了，就直接堆了题目数量，做了一个当时的小汇总，现在搬运一下（偷懒），嘿嘿。
-1. Two Sum用map建立number-&gt;index映射即可。
-2. Add Two Numbers利用链表的基本操作来模拟高精度相加过程，链表头为最低位
-3. Longest Substring Without Repeating Characters贪心，从头开始扫，遇到重复了，若上一个位置为i，则将i之前的字母去掉，继续贪心即可。
-4. Median of Two Sorted Arrays二分+递归，扩展到找...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
             </div>
             <!-- tags  -->
             
@@ -1116,9 +1114,46 @@ b_out
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 26
+        Total : 27
         </div>
         <!-- search  -->
         
@@ -1131,6 +1166,11 @@ b_out
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/leetcode-354/">leetcode-(354)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1214,12 +1254,12 @@ b_out
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
         </li>
     
     
