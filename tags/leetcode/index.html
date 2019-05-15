@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/15/leetcode-1044/">
+            
+                <span>leetcode-(1044)</span>
+        </a>
+        <div class="abstract-content">
+            题意：找到字符串中最长的重复子串。
+思路：裸的后缀数组题目（可惜我不会写）。所以只能用rolling hash算法+二分搜索了。rolling hash算法本质上是对字符串进行带滑动窗口哈希，然后找到匹配字符串的方法，跟kmp算法不一样的是，它借助了哈希函数，根据哈希值去找到相同的子串，而哈希函数并不保证正确唯一，所以可能会有误匹配的情况，要保证正确只能扫一遍判断一下，所以实际复杂度会比kmp稍高，但是优势在于遍历过的字符串都是可以记录下来的，所以能够在本题中使用，给定子串的长度，然后进行滑动，对子串进行哈希并记录，碰到相同哈希值的子串，则判断遍历过的相同哈希值的子串中是否有相同的子串，...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/10/leetcode-354/">
             
                 <span>leetcode-(354)</span>
@@ -640,37 +670,6 @@ b_out
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/20/leetcode-1014/">
-            
-                <span>leetcode-(1014)</span>
-        </a>
-        <div class="abstract-content">
-            就是最经典的二分答案题目，放上来顺便记录一下自己喜欢的二分写法还有排序的写法。
-首先是题解，使用的是STL中实现的二分查找方式，也是我比较喜欢的一种，感觉比l和r什么的清晰易懂。
-12345678910111213141516171819202122232425262728class Solution &#123;public:    int shipWithinDays(vector&lt;int&gt;&amp; weights, int D) &#123;        int first = 1, length = 0x3f3f3f3f;        for (auto w: ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
             </div>
             <!-- tags  -->
             
@@ -1128,32 +1127,9 @@ b_out
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 28
         </div>
         <!-- search  -->
         
@@ -1166,6 +1142,11 @@ b_out
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href="/2019/05/15/leetcode-1044/">leetcode-(1044)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1254,12 +1235,12 @@ b_out
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
         </li>
     
     

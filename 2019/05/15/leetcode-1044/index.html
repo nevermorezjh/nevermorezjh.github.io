@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>nevermorezjh&#39;s Studio</title>
+    <title>leetcode-(1044) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">nevermorezjh&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">leetcode-(1044)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">nevermorezjh's Studio.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            leetcode-(1044)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">679</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/15</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,304 +399,45 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/15/leetcode-1044/">
-            
-                <span>leetcode-(1044)</span>
-        </a>
-        <div class="abstract-content">
-            题意：找到字符串中最长的重复子串。
-思路：裸的后缀数组题目（可惜我不会写）。所以只能用rolling hash算法+二分搜索了。rolling hash算法本质上是对字符串进行带滑动窗口哈希，然后找到匹配字符串的方法，跟kmp算法不一样的是，它借助了哈希函数，根据哈希值去找到相同的子串，而哈希函数并不保证正确唯一，所以可能会有误匹配的情况，要保证正确只能扫一遍判断一下，所以实际复杂度会比kmp稍高，但是优势在于遍历过的字符串都是可以记录下来的，所以能够在本题中使用，给定子串的长度，然后进行滑动，对子串进行哈希并记录，碰到相同哈希值的子串，则判断遍历过的相同哈希值的子串中是否有相同的子串，...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>题意：找到字符串中最长的重复子串。</p>
+<p>思路：裸的后缀数组题目（可惜我不会写）。所以只能用rolling hash算法+二分搜索了。rolling hash算法本质上是对字符串进行带滑动窗口哈希，然后找到匹配字符串的方法，跟kmp算法不一样的是，它借助了哈希函数，根据哈希值去找到相同的子串，而哈希函数并不保证正确唯一，所以可能会有误匹配的情况，要保证正确只能扫一遍判断一下，所以实际复杂度会比kmp稍高，但是优势在于遍历过的字符串都是可以记录下来的，所以能够在本题中使用，给定子串的长度，然后进行滑动，对子串进行哈希并记录，碰到相同哈希值的子串，则判断遍历过的相同哈希值的子串中是否有相同的子串，从而判断该长度是否存在相同的子串。解决了这个问题之后，显然剩下的只是二分枚举答案的过程。</p>
+<p>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span>    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">test</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s, <span class="keyword">int</span> i1, <span class="keyword">int</span> i2, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i1+i] != s[i2+i]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="keyword">int</span> base = <span class="number">31</span>;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">int</span> mod = <span class="number">9999937</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> q = <span class="number">1</span>, hash = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;++i) &#123;</span><br><span class="line">            q *= base;</span><br><span class="line">            q %= mod;</span><br><span class="line">            </span><br><span class="line">            hash *= base;</span><br><span class="line">            hash += s[i];</span><br><span class="line">            hash %= mod;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; mp;</span><br><span class="line">        mp[hash].emplace_back(<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=k, j=<span class="number">0</span>;i&lt;len;++i, ++j) &#123;</span><br><span class="line">            hash *= base;</span><br><span class="line">            hash += s[i];</span><br><span class="line">            hash -= (s[j] * q) % mod;</span><br><span class="line">            hash += mod;</span><br><span class="line">            hash %= mod;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> v: mp[hash]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (test(s, v, j+<span class="number">1</span>, k)) &#123;</span><br><span class="line">                    <span class="keyword">return</span> v;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            mp[hash].emplace_back(j+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestDupSubstring</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;S)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> idx = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = S.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> ss = S;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=l;i&lt;=r;++i) &#123;</span><br><span class="line">            ss[i] -= <span class="string">'a'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (l+<span class="number">1</span>+r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> temp = check(ss, mid);</span><br><span class="line">            <span class="keyword">if</span> (temp == <span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                r = mid<span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                idx = temp;</span><br><span class="line">                l = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (idx == <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> S.substr(idx, l);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>减少哈希碰撞的一个手段就是使用素数，因此代码中使用的mod和base都是素数，而base应该是比26稍大的素数，而mod是乘以base并double一下也不会超出INT_MAX的素数。理想情况下，完美的哈希函数，复杂度则是<script type="math/tex">O(nlogn)</script>，但是应用当中自然不太可能，不过也勉强能ac了。印象中后缀数组理想复杂度也差不多，实际复杂度应该也会优于这种基于哈希的算法。</p>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/leetcode-354/">
-            
-                <span>leetcode-(354)</span>
-        </a>
-        <div class="abstract-content">
-            题意：信封套，找出信封套信封能够实现的最大信封数。
-思路：转化成一个最长递增子序列问题，要保证能够转化，由于是需要严格递增的序列，所以排序的过程中，保证w的上升同时，w相同时h是需要降序的，从而保证了w相同的不会取得。而最长上升子序列的问题有两种解法，一种是O(n^2)，另外一种是O(nlogn)，这里尝试写了O(nlogn)的方法，思路能够实现的关键点在于替代，也就是允许你重新构建一条更长的子序列，但是前提是不比原来的长就还是按原来的去构建，允许重新构建是因为对于后面的同一个点来说，前面的点越小越有可能构造出更长的序列，所以能够用更小的数替代新更长子序列对应的位置。
-123456789...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/09/leetcode-188/">
-            
-                <span>leetcode-(188)</span>
-        </a>
-        <div class="abstract-content">
-            题意：股票买卖问题，加了买卖次数限制。
-思路：由于没有写明数据范围，最直观的dp思路就是，当我知道前面怎么买卖最赚钱了，而对后面如果要交易次数加一的话，那就是再找一个交易位置就行了，所以显然就有转移的方式了，但是复杂度高达O(n^2k)，所以显然不会是这题期待的方法。然后的话就想起以前的贪心版本题目，不限制次数的，思路就是如果找假设卖出点和买入点，比如说2 3 4 5 1，我们可以看到2的位置可以是买入，因为接下来有一段递增的过程，而在这个过程，自然是首位是获利最多的，因为无论是在中间哪个点卖出再准备买入都会使得收益减少，所以目标就是找到这样的递增序列，然后直接贪心即可。而实际上，这种思...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/23/二叉树转双向链表/">
-            
-                <span>二叉树转双向链表</span>
-        </a>
-        <div class="abstract-content">
-            周六有个今日头条的面试，面试官上来就要求一个O(1)空间的二叉树转双向链表，我默认就不能开额外的栈空间，也不能使用递归函数了，然后想了很久也没有想出来，一开始还有点思路，但是现在想写出来还是不知道怎么写orz，上网一查发现几乎就没有O(1)空间的实现方法，要么就是递归，要么就是栈模拟递归，根本不是O(1)的空间，然后舍友微软面试回来，面试官跟他说要求的时候，说是递归调用的栈空间不计算，所以递归也算O(1)的空间。emmm，好吧，记录一下，以后注意问清楚面试官吧。吐槽一句，无论是ACM还是leetcode应该都没人会觉得O(1)空间能够使用递归吧…
-12345678910111213141...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/17/leetcode-946/">
-            
-                <span>leetcode-(946)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定一个入栈序列，还有一个出栈序列，检测出栈序列是否合法。
-思路：题目中要解决的问题是，入栈过程中究竟在那个位置有出栈的操作，而如今我们已经有了假定是正确的出栈顺序，那么出栈碰到的那个元素显然就是我们出栈位置，如第一个元素是3，那么入栈序列中某个3的位置出现了出栈。那么问题来了，是哪一个3呢？问题没有说元素是各不相同的（看数据规模也看出来应该是有重复的），而实际上我们也可以发现，第一个3和第二个3之间，我们可以当作一个子序列，因为是栈，那么第一个3和第二个3的出栈出栈顺序无论如何，其实都是一样的，如（3 2 1 3），所以只需要顺序地模拟，碰到相同的元素就让它出栈即可。
-代码如下
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/17</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/17/leetcode-895/">
-            
-                <span>leetcode-(895)</span>
-        </a>
-        <div class="abstract-content">
-            题意：维护一个频数栈，pop操作会将频数最高的元素pop出来，如果频数一致，那么就按入栈顺序，最后一个入栈的先pop出来，而push自定义，维护好pop的顺序即可。
-思路：维护两个哈希表，即可，一个标记元素的频数，一个标记对应频数的栈，因为频数低的是不会被pop出去，因此只要保证每个频数最高的栈都是正确的即可，那么这个过程可以发现，当最高的频数减一的时候，回到次高的频数，对应的栈其实也是正确的。代码如下。
-12345678910111213141516171819202122class FreqStack &#123;private:    unordered_map&lt;int, i...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/17</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/14/字节跳动笔试题/">
-            
-                <span>字节跳动笔试题</span>
-        </a>
-        <div class="abstract-content">
-            今天字节跳动的笔试题一共五道题，题数虽然多但是难度都不高。随意记录一下。
-第一道，普通宽搜。
-第二道，遍历一遍，新老map互相迭代使用。
-第三道，可以数学推导结果，复杂度O(n)，也可以二分答案，复杂度O(nlogn)。
-第四道，最短哈密尔顿回路，dfs超时，用状态压缩dp，dp过程类似Bellman-Ford算法，时间复杂度O(n^{2} 2^{n})。有个很诡异的卡内存点，定义全局变量会爆内存，但是可以声明一个vector的，同等大小而不爆内存，STL的实现本身也是在heap上面分配的内存，尚不明为什么可以用vector不爆内存，而全局变量会爆。
-第五道，贪心，题意不算很清晰，主要原...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/14</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/10/leetcode-947/">
-            
-                <span>leetcode-(947)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定一个grid，上面有一些石头，哪里有石头，我们就可以以它的位置出发，取出同行或同列的一个石头，问最多能取到多少个石头。
-思路：难点在于在复杂的情况下，就是列交上行再交上列，如此交错的情况下，怎么样取才是最优的，能取到最多的石头。而另一方面，我们可以发现，在这样的交错情况下，我们可以把这些石头划为同一个区域，最终能取得的最多石头数量，必然是区域内的石头数量减1，就是有办法最大化石头的取法。如此下来，就可以发现，我们能取到的最大石头数量其实就等于石头总数量减去总的区域数量。而区域的划分的方法也是根据这样的取法而来的，就是哪里有石头，哪里的行和列就能划为同一区域。这个过程也可以发现，...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/10/百度笔试题/">
-            
-                <span>百度笔试题</span>
-        </a>
-        <div class="abstract-content">
-            第一道题目题意：给定两个整数N和M，求长度为N+1的序列，要求序列第一个数字和最后一个数字均为1，而中间的数字可以从1-M种取，并且序列中相邻的数字不能是相同的，求这样的序列的数量是多少个。
-思路1：这是环形染色问题的特殊版本，染色问题一般来说都是让相邻的区域染上不相同的颜色即可，而环形染色问题就是要求首末位置是相邻的，那么染一圈回来发现位置重了则是不能接受的，那么应该怎么处理呢？简单来说，就是分两种情况，因为我们知道一维的染色问题的结果很简单直接就是m*(m-1)^{n-1}，那环形染色我们可以这样想，假设n个区域的环形，我们要对它进行染色，其方案数目是a_{n}，那么它实际上就是对长...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/10</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/09/leetcode-940/">
-            
-                <span>leetcode-(940)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定一个字符串，求有多少个不一样的子序列。
-思路1：记忆化搜索，设有一个空的系列头，要求不一样的子序列，显然就要想办法把重复的情况去掉，那么如何去掉了，方法就是排在前面的先出现的字母能构成的子序列用于计算，而排在后面的字母只用于扩展的序列数目，比如说“abaca”，第一个a，第一个b，第一个c是用来计算子序列个数的， 而第二个a因为以第一个a为第一个字母的子序列必然会包括以第二个a为开头的子序列，所以避免重复，只计算第一个a的即可。扩展的过程就很简单了，以第一个a为开头的节点加上后面的字母为开头能构成的子序列的数量再加一即可。以该例子来说，以a开头的子序列的数量，就是以b开头的子序...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/05/10/leetcode-354/" title="leetcode-(354)">
+                    <div class="prevTitle">leetcode-(354)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/">NEXT &#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -720,6 +522,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1305,6 +1125,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
