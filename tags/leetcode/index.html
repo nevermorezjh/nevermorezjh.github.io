@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/15/两个第k大/">
+            
+                <span>两个第k大</span>
+        </a>
+        <div class="abstract-content">
+            首先是，leetcode 215，题意找到任意数组中的第k大元素，直接使用快速选择算法，最坏情况是O(n^2)，平均是O(n)，不过这里表现好像不如直接排序的…估计是样例有卡O(n^2)情况出现，优化方法跟快速排序的pivot优化方法一样。
+12345678910111213141516171819202122232425class Solution &#123;private:    int helper(vector&lt;int&gt;&amp; nums, int from, int to, int k) &#123;        int pivot = nums[to];  ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/15/leetcode-1044/">
             
                 <span>leetcode-(1044)</span>
@@ -634,37 +664,6 @@ b_out
 
 0
 ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/03/leetcode-312/">
-            
-                <span>leetcode-(312)</span>
-        </a>
-        <div class="abstract-content">
-            就是算法导论上面讲解动态规划的时候最经典的矩阵链乘题目，枚举区间，起点终点，中间点，动态规划即可。貌似也是昨天的网易游戏笔试题目。
-代码如下：
-1234567891011121314151617181920212223242526class Solution&#123;  public:    int maxCoins(const vector&lt;int&gt; &amp;_nums)    &#123;        int n = _nums.size();        vector&lt;vector&lt;int&gt;&gt; dp(n + 2, vector&lt;in...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1160,14 +1159,9 @@ b_out
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 28
+        Total : 29
         </div>
         <!-- search  -->
         
@@ -1180,6 +1174,11 @@ b_out
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href="/2019/05/15/两个第k大/">两个第k大</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1273,12 +1272,12 @@ b_out
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-搬运老博客汇总/">leetcode-搬运老博客汇总</a>
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href="/2019/03/19/leetcode-995/">leetcode-995</a>
         </li>
     
     
@@ -1396,24 +1395,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+    </body>
 </html>
 
 
