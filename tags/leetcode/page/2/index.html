@@ -346,6 +346,72 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/03/leetcode-137/">
+            
+                <span>leetcode-(137)</span>
+        </a>
+        <div class="abstract-content">
+            题意是给出一个数组，里面只有一个数字只出现了一次，其他数字都出现了三次，找出那一个只出现过一次的数字。
+解法：又是有趣的位运算题，这道题其实跟两次的类似，可以换到三进制去做，但是学过数字电路，离散数学什么的，就应该能比较容易想到位运算的做法。我们的目的是输入信号，输入一次的能得到本身，而输入三次能返回到初始状态，那么最终我们就能得到那一个只出现了一次的数字。显然有三个状态，我们则需要两个变量来模拟这个过程。给定输入信号，并对状态编码，则有如下的真值表。
+
+
+
+
+a
+b
+input
+a_out
+b_out
+
+
+
+
+0
+0
+0
+0
+0
+
+
+0
+1
+0
+0
+1
+
+
+1
+0
+0
+1
+0
+
+
+0
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/03/leetcode-312/">
             
                 <span>leetcode-(312)</span>
@@ -1007,9 +1073,42 @@ na...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 29
+        Total : 30
         </div>
         <!-- search  -->
         
@@ -1022,6 +1121,11 @@ na...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/03</span><a class="archive-post-title" href="/2019/06/03/leetcode-1074/">leetcode-(1074)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1243,7 +1347,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 </html>
 
 

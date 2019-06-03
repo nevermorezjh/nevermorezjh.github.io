@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>leetcode-975 · nevermorezjh&#39;s Studio</title>
+    <title>nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">nevermorezjh&#39;s Studio.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">leetcode-975</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">nevermorezjh's Studio.</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            leetcode-975
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/03/12</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,59 +338,41 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>题意很有意思，定义一个操作是奇偶跳跃，第奇数次跳跃，就必须跳往大于等于自己的，并且是往前最近的一个位置，而第偶数次跳跃，就要跳往小于等于自己的，并且是往前最近的一个位置。问，可以从任意一个位置启动，有多少个可以启动到达到最后一个位置的位置。</p>
-<p>首先，这是跳跃相关的问题，因此有dp的思路，从一段的跳跃，逐渐扩展到整一段的跳跃。而这题，因为是跳跃到前面自己最靠近的位置，因此必须从后往前dp。如果从前往后dp，会发现后面加入的位置，可能成为前面的点更应该跳跃到的位置，从而导致了dp没有递推性，公式不成立，而从后往前dp就不会有这样的问题。</p>
-<p>而第二个问题，就是如何找到自己最靠近的数，也就是跳跃点的寻找，naive的做法自然是$O(n)$去寻找跳跃点，dp扩展的过程中，找新加入位置的跳跃点，然后根据前面dp到的信息，判断它要跳跃的点能不能跳跃到最后一个位置，实现dp，那么有没有更加高效的方法呢？</p>
-<p>有两种，第一种是dp的过程中，维护这样的排序序列，使用堆来进行优化，来找到最接近的位置，而stl库里面正好有map来帮助维护这个结构，接下来就是考察map的使用方法了（这道题考察的还挺全面的，所以记录一下）。</p>
-<ol>
-<li>对map来说，它的迭代器是双向的，官方文档描述它的iterator是<code>a bidirectional iterator to value_type</code>（某些博客里没写对），因此可以很方便地找到目标前后的大概位置。</li>
-<li>map还有<code>lower_bound</code>和<code>upper_bound</code>函数，顺便学习了一下这两个函数的具体使用场景和方法（其实一直我只会用lower_bound），而map也有专用的两个bound的接口可以直接使用，<code>lower_bound</code>就是找到大于等于自己这个数的最小的索引位置，而<code>upper_bound</code>就是找到大于自己的最小的索引位置（理解应该没问题），所以在这题里面就很简单了，使用<code>lower_bound</code>找到离自己最近的大于等于自己的那个位置，<code>upper_bound</code>加往前的迭代器找到离自己最近的小于等于自己的那个位置，完成$O(log(n))$的查找和维护。</li>
-</ol>
-<p>最后dp的思路也很简单，从最后一个点的前一个点开始，看每个点的奇偶跳跃能不能到达最后一个点只要知道它将要跳跃的点能不能到达最后一个点，因为要知道从那一点开始能不能到达最后一个点，也就是第一次跳跃，所以如果它跳往大于等于它的那个位置能够偶数跳跃到最后一个点，那就代表它能够到达最后一个点，而它要经过偶数跳跃调到最后一个点，那它偶数跳跃到的那个点必须能奇数跳跃到最后一个点，正好是$O(n)$的dp，最终复杂度是$O(nlog(n))$</p>
-<p>AC代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">oddEvenJumps</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = A.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; even(n, <span class="literal">false</span>), odd(n, <span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">        mp[A[n<span class="number">-1</span>]] = n<span class="number">-1</span>;</span><br><span class="line">        even[n<span class="number">-1</span>] = odd[n<span class="number">-1</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=n<span class="number">-2</span>;i&gt;=<span class="number">0</span>;--i) &#123;</span><br><span class="line">            <span class="keyword">int</span> val = A[i];</span><br><span class="line">            <span class="keyword">auto</span> oddJump = mp.lower_bound(val);</span><br><span class="line">            <span class="keyword">auto</span> evenJump = mp.upper_bound(val);</span><br><span class="line">            <span class="keyword">if</span> (oddJump != mp.end()) odd[i] = even[oddJump-&gt;second];</span><br><span class="line">            <span class="keyword">if</span> (evenJump != mp.begin()) even[i] = odd[(--evenJump)-&gt;second];</span><br><span class="line">            <span class="keyword">if</span> (odd[i]) ++ans;</span><br><span class="line">            mp[val] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>第二种方法就是用到上一篇提到的单调栈结构（应该也是本题的出题目的，毕竟标记了stack的标签）。关键就是如何使用单调栈来获取点的跳跃位置，回想上一题就会发现思路其实几乎是一样的，奇数跳跃就是从小到大排好序，大小一样就按index排序，栈中维护的单调性是index的单调性，当它遇到了index比它后的，那么就代表它将要跳往那一个点了，因为刚好比它大，而且index是最小的，扫一遍即可完成，而排序是$O(nlog(n))$的复杂度。偶数跳跃的思路也一样。结合最后的$O(n)$dp，其实总复杂度也是$O(nlog(n))$，而因为这是一下子排序好了的，因此比上面的维护过程会快一点。</p>
-<p>而此处也认识了一个新的知识点，就是vector中用<code>emplace_back</code>的速度是优于<code>push_back</code>的，主要原因是前者只需要一次构造函数，后者还可能还会多一次拷贝构造函数，开销稍微大一点。</p>
-<p>AC代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &amp;lhs, pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &amp;rhs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lhs.first &gt; rhs.first || (lhs.first == rhs.first &amp;&amp; lhs.second &lt; rhs.second);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &amp;lhs, pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &amp;rhs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lhs.first &lt; rhs.first || (lhs.first == rhs.first &amp;&amp; lhs.second &lt; rhs.second);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">oddEvenJumps</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = A.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; vec;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i) &#123;</span><br><span class="line">            vec.emplace_back(A[i], i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sort(vec.begin(), vec.end(), cmp2);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; oddNext(n, <span class="number">-1</span>);</span><br><span class="line">        <span class="built_in">stack</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; st;</span><br><span class="line">        st.push(vec[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i) &#123;</span><br><span class="line">            <span class="keyword">auto</span> p = vec[i];</span><br><span class="line">            <span class="keyword">while</span> (!st.empty() &amp;&amp; st.top().second &lt; p.second) &#123;</span><br><span class="line">                oddNext[st.top().second] = p.second;</span><br><span class="line">                st.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            st.push(p);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sort(vec.begin(), vec.end(), cmp1);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; evenNext(n, <span class="number">-1</span>);</span><br><span class="line">        <span class="built_in">stack</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;().swap(st);</span><br><span class="line">        st.push(vec[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i) &#123;</span><br><span class="line">            <span class="keyword">auto</span> p = vec[i];</span><br><span class="line">            <span class="keyword">while</span> (!st.empty() &amp;&amp; st.top().second &lt; p.second) &#123;</span><br><span class="line">                evenNext[st.top().second] = p.second;</span><br><span class="line">                st.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            st.push(p);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; oddJump(n, <span class="literal">false</span>), evenJump(n, <span class="literal">false</span>);</span><br><span class="line">        oddJump[n<span class="number">-1</span>] = evenJump[n<span class="number">-1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=n<span class="number">-2</span>;i&gt;=<span class="number">0</span>;--i) &#123;</span><br><span class="line">            <span class="keyword">int</span> evennext = evenNext[i], oddnext = oddNext[i];</span><br><span class="line">            <span class="keyword">if</span> (evennext != <span class="number">-1</span> &amp;&amp; oddJump[evennext]) &#123;</span><br><span class="line">                evenJump[i] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (oddnext != <span class="number">-1</span> &amp;&amp; evenJump[oddnext]) &#123;</span><br><span class="line">                ans += <span class="number">1</span>;</span><br><span class="line">                oddJump[i] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/06/03/leetcode-1074/">
+            
+                <span>leetcode-(1074)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给出一个矩阵，还有一个目标和，问矩阵中有几个子矩阵和为目标和。
+思路：这种矩阵中找子矩阵的问题有一种几乎通用的O(n^3)解法，那就是枚举矩阵的上限行和下限行，然后中间按列去找合适目标，这道题就直接使用了这种经典方法，而中间标记的方法需要哈希表或者map这样的二叉查找树，所以最后的复杂度是O(n^3logn)。
+12345678910111213141516171819202122232425262728class Solution &#123;public:    int numSubmatrixSumTarget(vector&lt;vector&lt;int&gt;&gt;&...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
     </article>
-    <!-- license  -->
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/03/18/effective-C-6/" title="effective-C++(6)">
-                    <div class="nextTitle">effective-C++(6)</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/03/11/effective-C-5/" title="effective-C++(5)">
-                    <div class="prevTitle">effective-C++(5)</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -536,24 +457,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1215,8 +1118,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({

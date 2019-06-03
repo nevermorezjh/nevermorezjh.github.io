@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/06/03/leetcode-1074/">
+            
+                <span>leetcode-(1074)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给出一个矩阵，还有一个目标和，问矩阵中有几个子矩阵和为目标和。
+思路：这种矩阵中找子矩阵的问题有一种几乎通用的O(n^3)解法，那就是枚举矩阵的上限行和下限行，然后中间按列去找合适目标，这道题就直接使用了这种经典方法，而中间标记的方法需要哈希表或者map这样的二叉查找树，所以最后的复杂度是O(n^3logn)。
+12345678910111213141516171819202122232425262728class Solution &#123;public:    int numSubmatrixSumTarget(vector&lt;vector&lt;int&gt;&gt;&...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/15/两个第k大/">
             
                 <span>两个第k大</span>
@@ -602,30 +633,6 @@
         <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/10/百度笔试题/">
-            
-                <span>百度笔试题</span>
-        </a>
-        <div class="abstract-content">
-            第一道题目题意：给定两个整数N和M，求长度为N+1的序列，要求序列第一个数字和最后一个数字均为1，而中间的数字可以从1-M种取，并且序列中相邻的数字不能是相同的，求这样的序列的数量是多少个。
-思路1：这是环形染色问题的特殊版本，染色问题一般来说都是让相邻的区域染上不相同的颜色即可，而环形染色问题就是要求首末位置是相邻的，那么染一圈回来发现位置重了则是不能接受的，那么应该怎么处理呢？简单来说，就是分两种情况，因为我们知道一维的染色问题的结果很简单直接就是m*(m-1)^{n-1}，那环形染色我们可以这样想，假设n个区域的环形，我们要对它进行染色，其方案数目是a_{n}，那么它实际上就是对长...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/10</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1108,9 +1115,42 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 29
+        Total : 30
         </div>
         <!-- search  -->
         
@@ -1123,6 +1163,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/03</span><a class="archive-post-title" href="/2019/06/03/leetcode-1074/">leetcode-(1074)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1344,7 +1389,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 </html>
 
 

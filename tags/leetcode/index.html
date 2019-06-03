@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/06/03/leetcode-1074/">
+            
+                <span>leetcode-(1074)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给出一个矩阵，还有一个目标和，问矩阵中有几个子矩阵和为目标和。
+思路：这种矩阵中找子矩阵的问题有一种几乎通用的O(n^3)解法，那就是枚举矩阵的上限行和下限行，然后中间按列去找合适目标，这道题就直接使用了这种经典方法，而中间标记的方法需要哈希表或者map这样的二叉查找树，所以最后的复杂度是O(n^3logn)。
+12345678910111213141516171819202122232425262728class Solution &#123;public:    int numSubmatrixSumTarget(vector&lt;vector&lt;int&gt;&gt;&...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/15/两个第k大/">
             
                 <span>两个第k大</span>
@@ -603,72 +634,6 @@
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/03/leetcode-137/">
-            
-                <span>leetcode-(137)</span>
-        </a>
-        <div class="abstract-content">
-            题意是给出一个数组，里面只有一个数字只出现了一次，其他数字都出现了三次，找出那一个只出现过一次的数字。
-解法：又是有趣的位运算题，这道题其实跟两次的类似，可以换到三进制去做，但是学过数字电路，离散数学什么的，就应该能比较容易想到位运算的做法。我们的目的是输入信号，输入一次的能得到本身，而输入三次能返回到初始状态，那么最终我们就能得到那一个只出现了一次的数字。显然有三个状态，我们则需要两个变量来模拟这个过程。给定输入信号，并对状态编码，则有如下的真值表。
-
-
-
-
-a
-b
-input
-a_out
-b_out
-
-
-
-
-0
-0
-0
-0
-0
-
-
-0
-1
-0
-0
-1
-
-
-1
-0
-0
-1
-0
-
-
-0
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/03</span>
             </div>
             <!-- tags  -->
             
@@ -1159,9 +1124,42 @@ b_out
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 29
+        Total : 30
         </div>
         <!-- search  -->
         
@@ -1174,6 +1172,11 @@ b_out
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/03</span><a class="archive-post-title" href="/2019/06/03/leetcode-1074/">leetcode-(1074)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1395,7 +1398,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 </html>
 
 
