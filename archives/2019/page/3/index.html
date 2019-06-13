@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/19/effective-C-7/">
+            
+                <span>effective-C++(7)</span>
+        </a>
+        <div class="abstract-content">
+            条款41：了解隐式接口和编译期多态class的多态比较常见，它是以函数签名为中心，通过virtual实现的运行期多态，而template则是隐式的接口，通过template具现化和函数重载解析实现的多态，发生在编译期。编译期相对于运行期的优势就在于将代码的出错时间提早了，在编译期就能发现bug，而且编译期能够完成的东西，提前到编译期完成一般来说也能够提高运行期的效率。
+条款42：了解typename的双重意义在模板上的typename和class意义其实是一样的，可以根据习惯随意调换使用。
+12template&lt;typename T&gt; class Widget;templat...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/03/19/leetcode-搬运老博客汇总/">
             
                 <span>leetcode-搬运老博客汇总</span>
@@ -618,42 +649,10 @@ na...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/20/leetcode-907/">
-            
-                <span>leetcode(907)</span>
-        </a>
-        <div class="abstract-content">
-            leetcode907题，题意很简单，就是计算数组所有的连续子数组的最小值的和。
-有两种做法，一种是单调栈，一种是单调队列。
-先说单调栈，思路就是找到数组中数字作为子数组最小值的左右边界，然后计算即可。如3 1 2 4，对于1来说，左边界就是最左端，右边界就是最右端，那么1作为最小值的子数组就有2×3个（离左端距离2，右端距离3），类似的，对2来说就是1×2。因此只需要计算得到每个数作为最小值的左右边界，即可完成。而要高效计算左右边界，则引入了单调栈的结构。
-单调栈，顾名思义，它首先是一个栈，而且内部是单调有序的。使用单调栈的重要原因是，当我们从左到右，检测数字右边界的过程中，较大数能到...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2019/page/2/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><span class="page-number current">3</span>
+        <a class="extend prev" rel="prev" href="/archives/2019/page/2/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2019/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/page/4/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1156,14 +1155,9 @@ na...
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -1176,6 +1170,11 @@ na...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2019/06/13/leetcode-952/">leetcode-(952)</a>
+        </li>
     
     
         <li class="archive-post-item">

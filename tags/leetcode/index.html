@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/06/13/leetcode-952/">
+            
+                <span>leetcode-(952)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给定一组数，任意两个不是互素的数能连接在一起，问最终最大的一个连接部件的元素个数是多少。思路：预处理筛素数得到所有小于等于数组最大值的素数。然后用并查集，将该数的质因数放到同一个集合里面，首先默认小的质因数会是根，所以接下来会把较大的质因数并入较小的质因数上面去，而在查询方面，合并前会检查是否合并过，合并过的话，那么就直接数量加一即可，若没有合并过，两个集合的数目加起来，然后较大的质因数的根为较小的质因数。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/13</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/06/03/leetcode-1074/">
             
                 <span>leetcode-(1074)</span>
@@ -598,37 +628,6 @@
         <div class="abstract-content">
             题意：给定一个字符串，求有多少个不一样的子序列。
 思路1：记忆化搜索，设有一个空的系列头，要求不一样的子序列，显然就要想办法把重复的情况去掉，那么如何去掉了，方法就是排在前面的先出现的字母能构成的子序列用于计算，而排在后面的字母只用于扩展的序列数目，比如说“abaca”，第一个a，第一个b，第一个c是用来计算子序列个数的， 而第二个a因为以第一个a为第一个字母的子序列必然会包括以第二个a为开头的子序列，所以避免重复，只计算第一个a的即可。扩展的过程就很简单了，以第一个a为开头的节点加上后面的字母为开头能构成的子序列的数量再加一即可。以该例子来说，以a开头的子序列的数量，就是以b开头的子序...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/09/leetcode-960/">
-            
-                <span>leetcode-(960)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定n个长度相等的字符串，问最少删掉多少列能够使得每一个字符串中的字符都是按字典序排好的。
-思路：最长上升子序列的变种。
-1234567891011121314151617181920212223242526272829class Solution &#123;private:    bool check(vector&lt;string&gt; &amp;A, int i, int j) &#123;        int m = A.size();        for (int k=0;k&lt;m;++k) &#123;            if (A[k][i] &gt...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1152,14 +1151,9 @@
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -1172,6 +1166,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2019/06/13/leetcode-952/">leetcode-(952)</a>
+        </li>
     
     
         <li class="archive-post-item">

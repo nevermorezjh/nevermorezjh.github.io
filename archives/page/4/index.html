@@ -346,67 +346,6 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/25/effective-C-2/">
-            
-                <span>effective-C++(2)</span>
-        </a>
-        <div class="abstract-content">
-            条款05：了解C++默默编写并调用哪些函数一个完整的C++类，必然包含了构造函数，析构函数，copy构造函数，copy assignment操作符函数，如果没有写这些函数，那么编译器将会生成default版本的函数，大致来说，隐患主要来源于copy构造函数，copy assignment操作符函数过于暴力。默认版本的这两个函数都会直接将rhs的值粗暴地用等号赋值起来，那么对于const的成员，显然会直接报错，另外，对于引用值来说，也是一个很难发现的隐患，因为引用是不可以修改的，如下面的代码
-12345string a = "10", b = "1";string &amp;c = a;c...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/22/effective-c-1/">
-            
-                <span>effective C++(1)</span>
-        </a>
-        <div class="abstract-content">
-            条款01： 视C++为一个语言联邦简单来说，就是四个次语言，C，object-oriented C++，template C++， stl。
-实际上，入门C++很多年了，而且也不是第一次看effective c++了，现在借此博客来重新阅读学习一遍，并做一些总结。
-条款02：尽量以const，enum，inline替换#define不使用#define的原因，主要可以用“宁可以编译器替换预处理器”来解释，就是说，#define的内容可能被预处理器直接替代，编译器并无法看到实际编程使用的记号，那么报错的时候将直接使用替代的元素，代码可读性可能没什么区别，但是编译报错之后可能很难定位bug的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href="/2019/02/20/leetcode-907/">
             
                 <span>leetcode(907)</span>
@@ -434,6 +373,10 @@
     </article>
     
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/page/3/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
     
 </main>
             <!-- profile -->

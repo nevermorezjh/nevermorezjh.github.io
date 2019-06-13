@@ -359,6 +359,36 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/06/13/leetcode-952/">
+            
+                <span>leetcode-(952)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给定一组数，任意两个不是互素的数能连接在一起，问最终最大的一个连接部件的元素个数是多少。思路：预处理筛素数得到所有小于等于数组最大值的素数。然后用并查集，将该数的质因数放到同一个集合里面，首先默认小的质因数会是根，所以接下来会把较大的质因数并入较小的质因数上面去，而在查询方面，合并前会检查是否合并过，合并过的话，那么就直接数量加一即可，若没有合并过，两个集合的数目加起来，然后较大的质因数的根为较小的质因数。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/13</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/06/03/leetcode-1074/">
             
                 <span>leetcode-(1074)</span>
@@ -620,40 +650,10 @@ height:50vh;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/10/leetcode-947/">
-            
-                <span>leetcode-(947)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给定一个grid，上面有一些石头，哪里有石头，我们就可以以它的位置出发，取出同行或同列的一个石头，问最多能取到多少个石头。
-思路：难点在于在复杂的情况下，就是列交上行再交上列，如此交错的情况下，怎么样取才是最优的，能取到最多的石头。而另一方面，我们可以发现，在这样的交错情况下，我们可以把这些石头划为同一个区域，最终能取得的最多石头数量，必然是区域内的石头数量减1，就是有办法最大化石头的取法。如此下来，就可以发现，我们能取到的最大石头数量其实就等于石头总数量减去总的区域数量。而区域的划分的方法也是根据这样的取法而来的，就是哪里有石头，哪里的行和列就能划为同一区域。这个过程也可以发现，...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1241,14 +1241,9 @@ height:50vh;
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -1261,6 +1256,11 @@ height:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2019/06/13/leetcode-952/">leetcode-(952)</a>
+        </li>
     
     
         <li class="archive-post-item">

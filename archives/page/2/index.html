@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/10/leetcode-947/">
+            
+                <span>leetcode-(947)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给定一个grid，上面有一些石头，哪里有石头，我们就可以以它的位置出发，取出同行或同列的一个石头，问最多能取到多少个石头。
+思路：难点在于在复杂的情况下，就是列交上行再交上列，如此交错的情况下，怎么样取才是最优的，能取到最多的石头。而另一方面，我们可以发现，在这样的交错情况下，我们可以把这些石头划为同一个区域，最终能取得的最多石头数量，必然是区域内的石头数量减1，就是有办法最大化石头的取法。如此下来，就可以发现，我们能取到的最大石头数量其实就等于石头总数量减去总的区域数量。而区域的划分的方法也是根据这样的取法而来的，就是哪里有石头，哪里的行和列就能划为同一区域。这个过程也可以发现，...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/10/百度笔试题/">
             
                 <span>百度笔试题</span>
@@ -639,41 +669,10 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/19/effective-C-7/">
-            
-                <span>effective-C++(7)</span>
-        </a>
-        <div class="abstract-content">
-            条款41：了解隐式接口和编译期多态class的多态比较常见，它是以函数签名为中心，通过virtual实现的运行期多态，而template则是隐式的接口，通过template具现化和函数重载解析实现的多态，发生在编译期。编译期相对于运行期的优势就在于将代码的出错时间提早了，在编译期就能发现bug，而且编译期能够完成的东西，提前到编译期完成一般来说也能够提高运行期的效率。
-条款42：了解typename的双重意义在模板上的typename和class意义其实是一样的，可以根据习惯随意调换使用。
-12template&lt;typename T&gt; class Widget;templat...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1176,14 +1175,9 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -1196,6 +1190,11 @@ b(n) = \sum_{d|n}a(d) \iff a(n)=\sum_{d|n} \mu(\frac{n}{d})b(d)证明过程就�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2019/06/13/leetcode-952/">leetcode-(952)</a>
+        </li>
     
     
         <li class="archive-post-item">
