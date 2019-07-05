@@ -346,57 +346,21 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/06/13/leetcode-952/">
+        <a class="abstract-title" href="/2019/07/05/leetcode-1095/">
             
-                <span>leetcode-(952)</span>
+                <span>leetcode-(1095)</span>
         </a>
         <div class="abstract-content">
-            题意：给定一组数，任意两个不是互素的数能连接在一起，问最终最大的一个连接部件的元素个数是多少。思路：预处理筛素数得到所有小于等于数组最大值的素数。然后用并查集，将该数的质因数放到同一个集合里面，首先默认小的质因数会是根，所以接下来会把较大的质因数并入较小的质因数上面去，而在查询方面，合并前会检查是否合并过，合并过的话，那么就直接数量加一即可，若没有合并过，两个集合的数目加起来，然后较大的质因数的根为较小的质因数。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484...
+            题意：有一个山脉数组，满足先严格递增然后严格递减，然后要求找到一个数在该数组里的最小下标，并且访问数组元素的次数不多于100次。
+思路：二分查找，先找到山顶位置，然后两边二分。找山顶位置很简单，取相邻的三个数，取增减关系即可，因为数组大小就10000，所以这里访问元素次数应该是$3log(n)$，然后两边二分访问元素次数是$2log(n)$，可以满足要求。
+代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** * // This i...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/13</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/05</span>
             </div>
             <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/03/leetcode-1074/">
-            
-                <span>leetcode-(1074)</span>
-        </a>
-        <div class="abstract-content">
-            题意：给出一个矩阵，还有一个目标和，问矩阵中有几个子矩阵和为目标和。
-思路：这种矩阵中找子矩阵的问题有一种几乎通用的O(n^3)解法，那就是枚举矩阵的上限行和下限行，然后中间按列去找合适目标，这道题就直接使用了这种经典方法，而中间标记的方法需要哈希表或者map这样的二叉查找树，所以最后的复杂度是O(n^3logn)。
-12345678910111213141516171819202122232425262728class Solution &#123;public:    int numSubmatrixSumTarget(vector&lt;vector&lt;int&gt;&gt;&...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
-    
-</div>
             
         </div>
     </article>

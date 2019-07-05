@@ -346,6 +346,31 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/07/05/leetcode-1095/">
+            
+                <span>leetcode-(1095)</span>
+        </a>
+        <div class="abstract-content">
+            题意：有一个山脉数组，满足先严格递增然后严格递减，然后要求找到一个数在该数组里的最小下标，并且访问数组元素的次数不多于100次。
+思路：二分查找，先找到山顶位置，然后两边二分。找山顶位置很简单，取相邻的三个数，取增减关系即可，因为数组大小就10000，所以这里访问元素次数应该是$3log(n)$，然后两边二分访问元素次数是$2log(n)$，可以满足要求。
+代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** * // This i...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/05</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/06/13/leetcode-952/">
             
                 <span>leetcode-(952)</span>
@@ -605,34 +630,6 @@
         <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/14/字节跳动笔试题/">
-            
-                <span>字节跳动笔试题</span>
-        </a>
-        <div class="abstract-content">
-            今天字节跳动的笔试题一共五道题，题数虽然多但是难度都不高。随意记录一下。
-第一道，普通宽搜。
-第二道，遍历一遍，新老map互相迭代使用。
-第三道，可以数学推导结果，复杂度O(n)，也可以二分答案，复杂度O(nlogn)。
-第四道，最短哈密尔顿回路，dfs超时，用状态压缩dp，dp过程类似Bellman-Ford算法，时间复杂度O(n^{2} 2^{n})。有个很诡异的卡内存点，定义全局变量会爆内存，但是可以声明一个vector的，同等大小而不爆内存，STL的实现本身也是在heap上面分配的内存，尚不明为什么可以用vector不爆内存，而全局变量会爆。
-第五道，贪心，题意不算很清晰，主要原...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/14</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1143,9 +1140,56 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 31
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1158,6 +1202,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/05</span><a class="archive-post-title" href="/2019/07/05/leetcode-1095/">leetcode-(1095)</a>
+        </li>
     
     
         <li class="archive-post-item">
