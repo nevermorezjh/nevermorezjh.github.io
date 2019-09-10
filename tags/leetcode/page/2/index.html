@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/04/09/leetcode-940/">
+            
+                <span>leetcode-(940)</span>
+        </a>
+        <div class="abstract-content">
+            题意：给定一个字符串，求有多少个不一样的子序列。
+思路1：记忆化搜索，设有一个空的系列头，要求不一样的子序列，显然就要想办法把重复的情况去掉，那么如何去掉了，方法就是排在前面的先出现的字母能构成的子序列用于计算，而排在后面的字母只用于扩展的序列数目，比如说“abaca”，第一个a，第一个b，第一个c是用来计算子序列个数的， 而第二个a因为以第一个a为第一个字母的子序列必然会包括以第二个a为开头的子序列，所以避免重复，只计算第一个a的即可。扩展的过程就很简单了，以第一个a为开头的节点加上后面的字母为开头能构成的子序列的数量再加一即可。以该例子来说，以a开头的子序列的数量，就是以b开头的子序...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/04/09/leetcode-960/">
             
                 <span>leetcode-(960)</span>
@@ -1179,9 +1209,18 @@ na...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 33
         </div>
         <!-- search  -->
         
@@ -1194,6 +1233,11 @@ na...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/leetcode-1163/">leetcode-(1163)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1430,24 +1474,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+    </body>
 </html>
 
 

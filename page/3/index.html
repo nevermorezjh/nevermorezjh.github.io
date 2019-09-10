@@ -359,6 +359,37 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/21/muduo-1/">
+            
+                <span>muduo-(1)</span>
+        </a>
+        <div class="abstract-content">
+            现在转到muduo这本书里学习一下关于C++多线程和网络编程的一些事情，读过一遍之后准备深入到unix网络编程里面，学习一下后台开发相关的一些内容，希望还能实现一个像handy那样的C++网络库。
+首先从第二章开始，学习线程同步相关的内容。
+回顾一下死锁的概念，死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。那么死锁有四个必要条件，互斥（某种资源只能一个进程访问），占有且等待（进程占有着资源并等待它所要的资源），不可抢占（别人的资源不能抢过来），循环等待（进程相互之间的等待构成了循环，死锁的直接原因）。要解...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/03/20/leetcode-1014/">
             
                 <span>leetcode-(1014)</span>
@@ -620,36 +651,6 @@ na...
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/25/effective-C-2/">
-            
-                <span>effective-C++(2)</span>
-        </a>
-        <div class="abstract-content">
-            条款05：了解C++默默编写并调用哪些函数一个完整的C++类，必然包含了构造函数，析构函数，copy构造函数，copy assignment操作符函数，如果没有写这些函数，那么编译器将会生成default版本的函数，大致来说，隐患主要来源于copy构造函数，copy assignment操作符函数过于暴力。默认版本的这两个函数都会直接将rhs的值粗暴地用等号赋值起来，那么对于const的成员，显然会直接报错，另外，对于引用值来说，也是一个很难发现的隐患，因为引用是不可以修改的，如下面的代码
-12345string a = "10", b = "1";string &amp;c = a;c...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/25</span>
             </div>
             <!-- tags  -->
             
@@ -1300,9 +1301,18 @@ na...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 33
         </div>
         <!-- search  -->
         
@@ -1315,6 +1325,11 @@ na...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/leetcode-1163/">leetcode-(1163)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1551,24 +1566,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+    </body>
 </html>
 
 
