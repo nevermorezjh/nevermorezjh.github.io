@@ -346,6 +346,39 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/09/10/负环判定/">
+            
+                <span>负环判定</span>
+        </a>
+        <div class="abstract-content">
+            想记录负环判定的是因为一道题目，要求图中的最大的平均边长环，给定了边长的范围e \in [0, w]，做法不难，其实就是二分平均值，然后求负环的题目。原因就是，把所有边长减去猜测的平均值（二分），并且取相反数，如果存在负环，那么就代表有环的边长和大于0，也就是有大于等于该平均值的环，接下来二分进一步逼近即可。
+而判定负环主流方法我还不是很熟，所以来总结一下。
+第一种是spfa算法，主要上下限都很高（spfa其实是优化的bf算法，但是被卡了的话复杂度跟bf算法一样O(VE)）。
+BFS版本的思想是松弛的次数如果超过$V$，那么就存在负环。
+1234567891011121314151617...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/09/10/leetcode-1163/">
             
                 <span>leetcode-(1163)</span>
@@ -928,9 +961,48 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 33
+        Total : 34
         </div>
         <!-- search  -->
         
@@ -943,6 +1015,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/负环判定/">负环判定</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1118,6 +1195,8 @@
     
         <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
     
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -1184,7 +1263,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 </html>
 
 

@@ -346,6 +346,36 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/03/04/effective-c-3/">
+            
+                <span>effective-C++(3)</span>
+        </a>
+        <div class="abstract-content">
+            条款13：以对象管理资源这一章基本都是推销智能指针， 以及讲智能指针可能需要注意的事情，但是稍微比较老了，还在讲auto_ptr的事情，印象中，C++11就已经废除了auto_ptr，只有unique_ptr，shared_ptr，weak_ptr三种指针了，因此后面还要补充一下这三种指针的实现，使用场景，还有具体为什么废除auto_ptr的原因，等等的关于智能指针的内容（希望记得）。
+这里就讲到了一个很重要的概念，Resource Acquisition Is Initialization(RAII)，意思就是资源取得的时机也是它初始化的时间，在C++中，就需要很好地管理好变量的生命周...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C++">C++</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/02/25/effective-C-2/">
             
                 <span>effective-C++(2)</span>
@@ -995,9 +1025,48 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 33
+        Total : 34
         </div>
         <!-- search  -->
         
@@ -1010,6 +1079,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href="/2019/09/10/负环判定/">负环判定</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1185,6 +1259,8 @@
     
         <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
     
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -1251,7 +1327,24 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 </html>
 
 
