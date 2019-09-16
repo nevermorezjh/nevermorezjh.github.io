@@ -359,6 +359,36 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/09/16/uva-10559/">
+            
+                <span>uva(10559)</span>
+        </a>
+        <div class="abstract-content">
+            题意：方块消除，给出一行方块，可以消除同样数字的连续的方块，然后得到连续长度的平方的得分，求最大能得多少分。
+思路：区间dp，记忆化搜索方法比较容易写。因为最终得到最大分的解法可能是中间消去一些连续的，然后最后统一全部消去（一锅端），但是我们不知道中间应该怎么消去，所以就可以将问题划分为一系列的子问题，记住这些可能重复的子问题的解，防止重复遍历求解，最终得到最后的解法。$dp[from][to][rightnum]$ 表示from到to的最大得分，其中rightnum表示右边有多少数字与$arr[to]$相等，表示用于最后统一全部消去的。所以就得到以下的解法，一个是naive的，不取右边...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/09/10/负环判定/">
             
                 <span>负环判定</span>
@@ -619,30 +649,6 @@ BFS版本的思想是松弛的次数如果超过$V$，那么就存在负环。
         <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/23/二叉树转双向链表/">
-            
-                <span>二叉树转双向链表</span>
-        </a>
-        <div class="abstract-content">
-            周六有个今日头条的面试，面试官上来就要求一个O(1)空间的二叉树转双向链表，我默认就不能开额外的栈空间，也不能使用递归函数了，然后想了很久也没有想出来，一开始还有点思路，但是现在想写出来还是不知道怎么写orz，上网一查发现几乎就没有O(1)空间的实现方法，要么就是递归，要么就是栈模拟递归，根本不是O(1)的空间，然后舍友微软面试回来，面试官跟他说要求的时候，说是递归调用的栈空间不计算，所以递归也算O(1)的空间。emmm，好吧，记录一下，以后注意问清楚面试官吧。吐槽一句，无论是ACM还是leetcode应该都没人会觉得O(1)空间能够使用递归吧…
-12345678910111213141...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/23</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1310,32 +1316,9 @@ BFS版本的思想是松弛的次数如果超过$V$，那么就存在负环。
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 34
+        Total : 35
         </div>
         <!-- search  -->
         
@@ -1348,6 +1331,11 @@ BFS版本的思想是松弛的次数如果超过$V$，那么就存在负环。
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href="/2019/09/16/uva-10559/">uva(10559)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1596,24 +1584,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+    </body>
 </html>
 
 

@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>leetcode-(312) · nevermorezjh&#39;s Studio</title>
+    <title>uva(10559) · nevermorezjh&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">nevermorezjh&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">leetcode-(312)</a>
+                <a href="#" class="post-name">uva(10559)</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            leetcode-(312)
+            uva(10559)
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">561</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">427</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/04/03</span>
+                    <span class="post-intro-time">2019/09/16</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,10 +401,9 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>就是算法导论上面讲解动态规划的时候最经典的矩阵链乘题目，枚举区间，起点终点，中间点，动态规划即可。貌似也是昨天的网易游戏笔试题目。</p>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxCoins</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;_nums)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = _nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dp(n + <span class="number">2</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n + <span class="number">2</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums(n + <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i + <span class="number">1</span>] = _nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">1</span>; len &lt;= n; ++len)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> from = <span class="number">1</span>; from &lt;= n - len + <span class="number">1</span>; from++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> to = from + len - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> mid = from; mid &lt;= to; mid++)</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[from][to] = max(dp[from][to], dp[from][mid - <span class="number">1</span>] + nums[from - <span class="number">1</span>] * nums[mid] * nums[to + <span class="number">1</span>] + dp[mid + <span class="number">1</span>][to]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">1</span>][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>当然啦，这篇博客也不是仅仅是这道题目那么简单，顺便回想一下之前的题目，石子归并，也是一样的套路题目，但是加法相对于乘法有一个可以很大程度上优化的方法，单纯矩阵链乘在没有其他条件的时候只能达到<script type="math/tex">O(n^3)</script>的时间复杂度（维基百科上面有个<script type="math/tex">O(nlogn)</script>的，但是太复杂。而石子归并的就有一个很经典的优化方法，叫做平行四边形优化方法，基本原理就是跟区间相关的时候，存在不等式<script type="math/tex">w(a,c) + w(b,d) \leq w(a,d) + w(b, c)</script>，其中<script type="math/tex">a < b \leq c < d</script>，那么说明当中间存在最优方案的时候，都可以按照这样的方案去做，其他方案也不会优于这种方案。在这种区间dp的问题下面，说的就是当<script type="math/tex">(a, b)</script>和<script type="math/tex">(c,d)</script>中其最优方案分别是<script type="math/tex">s1</script>, <script type="math/tex">s2</script>，那么<script type="math/tex">(a,d)</script>的最优方案必然在<script type="math/tex">s1</script>和<script type="math/tex">s2</script>中产生，通过这样的优化，最后的复杂度可以降到<script type="math/tex">O(n^2)</script>。在石头合并上能够这样做的大致原因在于加法总的和是一定的，不一定的只是合并的过程，但是链乘上，乘法再相加则不一定存在这样的性质，而需要其他条件去补充，因此不能使用平行四边形优化。</p>
+        <p>题意：方块消除，给出一行方块，可以消除同样数字的连续的方块，然后得到连续长度的平方的得分，求最大能得多少分。</p>
+<p>思路：区间dp，记忆化搜索方法比较容易写。因为最终得到最大分的解法可能是中间消去一些连续的，然后最后统一全部消去（一锅端），但是我们不知道中间应该怎么消去，所以就可以将问题划分为一系列的子问题，记住这些可能重复的子问题的解，防止重复遍历求解，最终得到最后的解法。$dp[from][to][rightnum]$ 表示from到to的最大得分，其中rightnum表示右边有多少数字与$arr[to]$相等，表示用于最后统一全部消去的。所以就得到以下的解法，一个是naive的，不取右边相同的，一个是取的，最终代码如下，直接看代码比较直观理解。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> arr[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[maxn][maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to, <span class="keyword">int</span> rightnum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (dp[from][to][rightnum] != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> dp[from][to][rightnum];</span><br><span class="line">    <span class="keyword">int</span> k = arr[to], q = to;</span><br><span class="line">    <span class="keyword">while</span> (arr[q] == k)</span><br><span class="line">    &#123;</span><br><span class="line">        q--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = (to - q + rightnum) * (to - q + rightnum);</span><br><span class="line">    <span class="keyword">if</span> (from &lt;= q)</span><br><span class="line">    &#123;</span><br><span class="line">        ans += solve(from, q, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> p = from; p &lt; q; ++p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[p] == arr[to] &amp;&amp; arr[p] != arr[p + <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            ans = max(ans, solve(from, p, rightnum + to - q) + solve(p + <span class="number">1</span>, q, <span class="number">0</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dp[from][to][rightnum] = ans;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; solve(<span class="number">0</span>, n - <span class="number">1</span>, <span class="number">0</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
@@ -413,17 +412,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/03/leetcode-137/" title="leetcode-(137)">
-                    <div class="nextTitle">leetcode-(137)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/04/03/网易游戏笔试题-莫比乌斯反演/" title="网易游戏笔试题-莫比乌斯反演">
-                    <div class="prevTitle">网易游戏笔试题-莫比乌斯反演</div>
+                <a href="/2019/09/10/负环判定/" title="负环判定">
+                    <div class="prevTitle">负环判定</div>
                 </a>
             
         </li>
